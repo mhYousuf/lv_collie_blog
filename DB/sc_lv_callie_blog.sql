@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2020 at 12:27 PM
+-- Generation Time: Feb 21, 2020 at 02:36 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.3.11
 
@@ -141,6 +141,31 @@ INSERT INTO `category` (`id`, `name`, `status`, `created_by`, `updated_by`, `cre
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0 = Inactive, 1 = Active',
+  `created_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `updated_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `name`, `email`, `message`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'boyg98096@gmail.com', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 1, NULL, NULL, '2020-02-21 04:42:08', '2020-02-21 04:42:08');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -164,7 +189,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2020_02_13_070912_create_ct_details_table', 7),
 (9, '2020_02_14_091912_create_admin_table', 8),
 (10, '2020_02_18_100103_create_bl_details_table', 9),
-(15, '2020_02_19_100729_create_users_table', 10);
+(15, '2020_02_19_100729_create_users_table', 10),
+(16, '2020_02_21_101201_create_comment_table', 11);
 
 -- --------------------------------------------------------
 
@@ -247,7 +273,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `role`, `first_name`, `last_name`, `email`, `phone`, `password`, `address`, `remember_token`, `email_verified_at`, `phone_verified_at`, `status`, `online`, `login_at`, `logout_at`, `created_at`, `updated_at`) VALUES
 (2, 'Webusers', 'mithu', 'yousuf', 'admin@gmail.com', '01677092507', '$2y$10$gm2DdgOFSEHgHyxFnx2XVu6ijobsTkeMh3FZg54hQzBKbUsebUrva', 'soijdsj', NULL, NULL, NULL, 1, 1, NULL, NULL, '2020-02-20 04:57:20', '2020-02-20 04:57:20'),
 (3, 'Webusers', 'mithu', 'yousuf', 'boyg98096@gmail.com', '01677092507', '$2y$10$rUrCbeXlgUPCuaVQ1YCKF.UWYGcwWQdNs/nzXtqQ./aFbmf0XYPai', 'dfdg', NULL, NULL, NULL, 1, 1, '2020-02-20 05:17:40', NULL, '2020-02-20 05:17:11', '2020-02-20 05:17:40'),
-(4, 'Webusers', 'mithu', 'yousuf', 'boy230728@gmail.com', '01839072709', '$2y$10$dFN0jmirX.pl89XsnGPuHuwwNwZWdFJ6FQNX1fr4/dJshgilUQtQO', 'sdjfj', NULL, NULL, NULL, 1, 1, NULL, NULL, '2020-02-20 05:21:52', '2020-02-20 05:21:52'),
+(4, 'Webusers', 'mithu', 'yousuf', 'boy230728@gmail.com', '01839072709', '$2y$10$dFN0jmirX.pl89XsnGPuHuwwNwZWdFJ6FQNX1fr4/dJshgilUQtQO', 'sdjfj', NULL, NULL, NULL, 1, 1, '2020-02-21 02:58:37', NULL, '2020-02-20 05:21:52', '2020-02-21 02:58:37'),
 (5, 'Webusers', 'mithu', 'yousuf', 'globex@gmail.com', '0254876887', '$2y$10$erIwVVDkSzBoxIm.joDIvOh47DRn2YT38I0YV3stFDe4h1pkQcmM2', 'sskj', NULL, NULL, NULL, 1, 0, NULL, NULL, '2020-02-20 05:26:08', '2020-02-20 05:26:08');
 
 --
@@ -276,6 +302,12 @@ ALTER TABLE `bl_details`
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -327,10 +359,15 @@ ALTER TABLE `bl_details`
 ALTER TABLE `category`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `social`
 --
