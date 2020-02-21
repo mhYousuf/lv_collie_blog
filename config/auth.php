@@ -46,6 +46,11 @@ return [
             'provider' => 'admin',
         ],
 
+        'webusers' => [
+            'driver' => 'session',
+            'provider' => 'wuser',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -79,6 +84,10 @@ return [
         'admin' => [
             'driver' => 'eloquent',
             'model' => App\Model\Auth\AuthLogin::class,
+        ],
+        'wuser' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\Website\Users\Register::class,
         ],
 
         // 'users' => [

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2020 at 01:48 PM
+-- Generation Time: Feb 20, 2020 at 12:27 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.3.11
 
@@ -51,7 +51,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `role`, `username`, `name`, `password`, `email`, `phone`, `nid`, `remember_token`, `email_verified_at`, `phone_verified_at`, `status`, `online`, `login_at`, `logout_at`, `created_at`, `updated_at`) VALUES
-(1, 'Superadmin', 'admin', 'MD. Yousuf Hossain', '$2y$10$W9y/K9rtqyByuVZllgw8G.bVFzFyQcEwKdf7vnXOivzemFrNb/8Cu', 'yousufhossain50@gmail.com', '01839072709', NULL, NULL, NULL, NULL, 1, 0, '2020-02-15 05:06:29', '2020-02-15 05:14:06', '2020-02-14 03:52:33', '2020-02-15 05:14:06');
+(1, 'Superadmin', 'admin', 'MD. Yousuf Hossain', '$2y$10$TpFT/A4BAZgQW/GLiT923uY7FBnwHTho1bhgyNeMQSI7EqcFhE/sS', 'yousufhossain50@gmail.com', '01839072709', NULL, NULL, NULL, NULL, 1, 0, NULL, NULL, '2020-02-18 04:05:29', '2020-02-18 04:05:29');
 
 -- --------------------------------------------------------
 
@@ -89,6 +89,33 @@ INSERT INTO `basic` (`id`, `title`, `website_name`, `phone`, `email`, `logo`, `f
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bl_details`
+--
+
+CREATE TABLE `bl_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `heading` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0 = Inactive, 1 = Active',
+  `created_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `updated_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `bl_details`
+--
+
+INSERT INTO `bl_details` (`id`, `name`, `date`, `heading`, `image`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(2, 'admin', '2020-02-18', 'Easily balance workloads and  manage resources', '1582020450.jpg', 'In vidit homero ullamcorper his, ea mea senserit constituto, et alia idque congue sit. Postea percipit his ne. Probo movet noluisse in nam, sed ex utroque inermis corrumpit, oratio tation vix at. Usu aperiri assentior at, eam et melius iudicabit pertinacia', 1, NULL, NULL, '2020-02-18 04:07:29', '2020-02-18 05:13:16');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category`
 --
 
@@ -109,38 +136,7 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (1, 'mithu', 0, NULL, NULL, '2020-02-10 04:54:49', '2020-02-13 08:04:09'),
 (2, 'Mithu Mall', 1, NULL, NULL, '2020-02-10 04:55:18', '2020-02-10 04:57:32'),
-(3, 'Movie', 1, NULL, NULL, '2020-02-14 04:44:04', '2020-02-14 04:44:14'),
-(4, 'admin', 1, NULL, NULL, '2020-02-15 04:11:13', '2020-02-15 04:20:35'),
-(5, 'Shovo', 1, NULL, NULL, '2020-02-15 04:27:45', '2020-02-15 05:08:32');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ct_details`
---
-
-CREATE TABLE `ct_details` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `cat_id` bigint(20) UNSIGNED NOT NULL,
-  `sub_cat_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `heading` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL COMMENT '0 = Inactive, 1 = Active',
-  `created_by` bigint(20) UNSIGNED DEFAULT NULL,
-  `updated_by` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `ct_details`
---
-
-INSERT INTO `ct_details` (`id`, `cat_id`, `sub_cat_id`, `name`, `date`, `image`, `heading`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'admin panel', '2020-02-13', '1581601685.jpg', 'Easily balance workloads and  manage resources', ':OPsjdosijf', 1, NULL, NULL, '2020-02-13 07:48:05', '2020-02-13 07:48:05');
+(3, 'Movie', 1, NULL, NULL, '2020-02-14 04:44:04', '2020-02-14 04:44:14');
 
 -- --------------------------------------------------------
 
@@ -166,7 +162,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2020_02_11_174528_create_ls_subcategory_table', 5),
 (6, '2020_02_12_165123_create_sub_category_table', 6),
 (7, '2020_02_13_070912_create_ct_details_table', 7),
-(8, '2020_02_14_091912_create_admin_table', 8);
+(9, '2020_02_14_091912_create_admin_table', 8),
+(10, '2020_02_18_100103_create_bl_details_table', 9),
+(15, '2020_02_19_100729_create_users_table', 10);
 
 -- --------------------------------------------------------
 
@@ -190,7 +188,6 @@ CREATE TABLE `social` (
 --
 
 INSERT INTO `social` (`id`, `icon`, `url`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'fa fa-facebook', 'https://www.youtube.com/watch?v=S6lzo-OWoqI', 0, NULL, NULL, '2020-02-09 12:28:10', '2020-02-09 12:38:21'),
 (2, 'fa fa-google', 'https://www.youtube.com/watch?v=S6lzo-OWoqI', 1, NULL, NULL, '2020-02-14 04:42:15', '2020-02-14 04:42:34');
 
 -- --------------------------------------------------------
@@ -215,7 +212,43 @@ CREATE TABLE `sub_category` (
 --
 
 INSERT INTO `sub_category` (`id`, `category_id`, `subcategory_name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 2, 'yousuf', 1, NULL, NULL, '2020-02-12 11:18:33', '2020-02-12 11:25:23');
+(1, 2, 'yousuf', 0, NULL, NULL, '2020-02-12 11:18:33', '2020-02-18 03:43:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Webusers',
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `phone_verified_at` timestamp NULL DEFAULT NULL,
+  `status` int(11) NOT NULL COMMENT '0 = Inactive, 1 = Active',
+  `online` int(11) NOT NULL COMMENT '0 = Inactive, 1 = Active',
+  `login_at` timestamp NULL DEFAULT NULL,
+  `logout_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `role`, `first_name`, `last_name`, `email`, `phone`, `password`, `address`, `remember_token`, `email_verified_at`, `phone_verified_at`, `status`, `online`, `login_at`, `logout_at`, `created_at`, `updated_at`) VALUES
+(2, 'Webusers', 'mithu', 'yousuf', 'admin@gmail.com', '01677092507', '$2y$10$gm2DdgOFSEHgHyxFnx2XVu6ijobsTkeMh3FZg54hQzBKbUsebUrva', 'soijdsj', NULL, NULL, NULL, 1, 1, NULL, NULL, '2020-02-20 04:57:20', '2020-02-20 04:57:20'),
+(3, 'Webusers', 'mithu', 'yousuf', 'boyg98096@gmail.com', '01677092507', '$2y$10$rUrCbeXlgUPCuaVQ1YCKF.UWYGcwWQdNs/nzXtqQ./aFbmf0XYPai', 'dfdg', NULL, NULL, NULL, 1, 1, '2020-02-20 05:17:40', NULL, '2020-02-20 05:17:11', '2020-02-20 05:17:40'),
+(4, 'Webusers', 'mithu', 'yousuf', 'boy230728@gmail.com', '01839072709', '$2y$10$dFN0jmirX.pl89XsnGPuHuwwNwZWdFJ6FQNX1fr4/dJshgilUQtQO', 'sdjfj', NULL, NULL, NULL, 1, 1, NULL, NULL, '2020-02-20 05:21:52', '2020-02-20 05:21:52'),
+(5, 'Webusers', 'mithu', 'yousuf', 'globex@gmail.com', '0254876887', '$2y$10$erIwVVDkSzBoxIm.joDIvOh47DRn2YT38I0YV3stFDe4h1pkQcmM2', 'sskj', NULL, NULL, NULL, 1, 0, NULL, NULL, '2020-02-20 05:26:08', '2020-02-20 05:26:08');
 
 --
 -- Indexes for dumped tables
@@ -234,15 +267,15 @@ ALTER TABLE `basic`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `category`
+-- Indexes for table `bl_details`
 --
-ALTER TABLE `category`
+ALTER TABLE `bl_details`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ct_details`
+-- Indexes for table `category`
 --
-ALTER TABLE `ct_details`
+ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -264,6 +297,12 @@ ALTER TABLE `sub_category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -278,20 +317,20 @@ ALTER TABLE `admin`
 ALTER TABLE `basic`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `bl_details`
+--
+ALTER TABLE `bl_details`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `ct_details`
---
-ALTER TABLE `ct_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `social`
 --
@@ -302,6 +341,11 @@ ALTER TABLE `social`
 --
 ALTER TABLE `sub_category`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

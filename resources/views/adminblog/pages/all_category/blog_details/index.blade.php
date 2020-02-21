@@ -1,11 +1,11 @@
 @extends('adminblog.layout')
 @section('content')    
     <section class="content-header">
-        <h1>Categories Manage</h1>
+        <h1>Blog Details</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Settings</a></li>
-            <li class="active">Sub Categories Manage</li>
+            <li><a href="#">Categories Manage</a></li>
+            <li class="active">Blog Details</li>
         </ol>
     </section>
 
@@ -21,8 +21,6 @@
                         <thead>
                             <tr>
                                 <th class="text-left">SL</th>
-                                <th class="text-left">Category Name</th>
-                                <th class="text-left">Sub Category Name</th>
                                 <th class="text-left">Name</th>
                                 <th class="text-left">Date</th>
                                 <th class="text-left">Heading</th>
@@ -36,12 +34,10 @@
                             @foreach($details as $key =>$v)
                             <tr>
                                 <td class="text-left">{{ $key+1 }}</td>
-                                <td class="text-left">{{ $v->category->name }}</td>
-                                <td class="text-left">{{ $v->sub_category->subcategory_name }}</td>
                                 <td class="text-left">{{ $v->name }}</td>
                                 <td class="text-left">{{ $v->date }}</td>
                                 <td class="text-left">{{ $v->heading }}</td>
-                                <td class="text-left">{{ $v->description }}</td>
+                                <td class="text-left"title="{{ $v->description }}">{!! substr(strip_tags($v->description), 0, 20) !!}...</td>
                                 <td><img src="{{ url('upload/details/'.$v->image) }}" width="70" height="50"></td>
                                 
                                 <td align="text-center">
@@ -53,7 +49,7 @@
                                 </td>
                                 <td class="text-right">
                                     <a href="{{ url('admin/details/create/'.$v->id) }}" id="{{ $v->id }}" class="btn btn-success" style="border-radius: 20px !important;"><i class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger" style="border-radius: 20px !important;"><i class="fa fa-trash-o"></i></a>
+                                    <button data-href="{{ url('admin/details/destory/'.$v->id)}}" data-id="{{ $v->id }}" class="btn btn-danger del_btn" style="border-radius: 20px !important;"><i class="fa fa-trash-o"></i></button>
                                 </td>
                             </tr>
                             @endforeach

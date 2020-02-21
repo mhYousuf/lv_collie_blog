@@ -41,4 +41,13 @@ class SocialCn extends Controller
     	session()->put('social', Social::find(1));
         return redirect()->route('admin.social.manage');
     }
+
+    public function destory($id)
+    {
+        $delete = Social::find($id);
+
+        $delete->delete();
+
+        return redirect()->back();
+    }
 }

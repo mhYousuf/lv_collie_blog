@@ -1,58 +1,57 @@
 @extends('website.layout')
 @section('content')
 <div class="section">
-        <div class="container">
-            <div id="hot-post" class="row hot-post">
-                <div class="col-md-8 hot-post-left">
-                    <div class="post post-thumb">
-                        <a class="post-img" href="{{ route('blog.details')}}"><img src="{{ asset('assets/website/img/hot-post-1.jpg')}}" alt=""></a>
-                        <div class="post-body">
-                            <div class="post-category">
-                                <a href="category.html">Lifestyle</a>
-                            </div>
-                            <h3 class="post-title title-lg"><a href="{{ route('blog.details')}}">Postea senserit id eos, vivendo periculis ei qui</a></h3>
-                            <ul class="post-meta">
-                                <li><a href="author.html">John Doe</a></li>
-                                <li>20 April 2018</li>
-                            </ul>
+    <div class="container">
+        <div id="hot-post" class="row hot-post">
+            <div class="col-md-8 hot-post-left">
+                <div class="post post-thumb">
+                    <a class="post-img" href="{{ route('blog.details')}}"><img src="{{ asset('assets/website/img/hot-post-1.jpg')}}" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Lifestyle</a>
                         </div>
+                        <h3 class="post-title title-lg"><a href="{{ route('blog.details')}}">Postea senserit id eos, vivendo periculis ei qui</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="col-md-4 hot-post-right">
-                    <div class="post post-thumb">
-                        <a class="post-img" href="{{ route('blog.details')}}"><img src="{{ asset('assets/website/img/hot-post-2.jpg')}}" alt=""></a>
-                        <div class="post-body">
-                            <div class="post-category">
-                                <a href="category.html">Lifestyle</a>
-                            </div>
-                            <h3 class="post-title"><a href="{{ route('blog.details')}}">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-                            <ul class="post-meta">
-                                <li><a href="author.html">John Doe</a></li>
-                                <li>20 April 2018</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="post post-thumb">
-                        <a class="post-img" href="{{ route('blog.details')}}"><img src="{{ asset('assets/website/img/hot-post-3.jpg')}}" alt=""></a>
-                        <div class="post-body">
-                            <div class="post-category">
-                                <a href="category.html">Fashion</a>
-                                <a href="category.html">Lifestyle</a>
-                            </div>
-                            <h3 class="post-title"><a href="{{ route('blog.details')}}">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
-                            <ul class="post-meta">
-                                <li><a href="author.html">John Doe</a></li>
-                                <li>20 April 2018</li>
-                            </ul>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+            <div class="col-md-4 hot-post-right">
+                <div class="post post-thumb">
+                    <a class="post-img" href="{{ route('blog.details')}}"><img src="{{ asset('assets/website/img/hot-post-2.jpg')}}" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="{{ route('blog.details')}}">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                    </div>
+                </div>
 
+                <div class="post post-thumb">
+                    <a class="post-img" href="{{ route('blog.details')}}"><img src="{{ asset('assets/website/img/hot-post-3.jpg')}}" alt=""></a>
+                    <div class="post-body">
+                        <div class="post-category">
+                            <a href="category.html">Fashion</a>
+                            <a href="category.html">Lifestyle</a>
+                        </div>
+                        <h3 class="post-title"><a href="{{ route('blog.details')}}">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
+                        <ul class="post-meta">
+                            <li><a href="author.html">John Doe</a></li>
+                            <li>20 April 2018</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
+</div>
 
     <div class="section">
         <div class="container">

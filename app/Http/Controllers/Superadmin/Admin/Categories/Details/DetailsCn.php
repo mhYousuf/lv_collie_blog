@@ -14,7 +14,7 @@ class DetailsCn extends Controller
     public function index()
     {
     	$data['details']	= Details::orderBy('id', 'desc')->get();
-    	return view('adminblog.pages.all_category.category_details.index', $data);
+    	return view('adminblog.pages.all_category.blog_details.index', $data);
     }
 
     public function form(Request $request)
@@ -22,14 +22,12 @@ class DetailsCn extends Controller
     	$data['value']	= Details::find($request->id);
     	$data['category']	= Category::where(['status'=> 1])->get();
     	$data['sub_category']	= SubCategory::where(['status' => 1])->get();
-    	return view('adminblog.pages.all_category.category_details.create', $data);
+    	return view('adminblog.pages.all_category.blog_details.create', $data);
     }
 
     public function store(Request $request)
     {
     	$id 	= $request->id;
-    	$data['cat_id']	= $request->cat_id;
-    	$data['sub_cat_id']	= $request->sub_cat_id;
     	$data['name']	= $request->name;
     	$data['date']	= $request->date;
     	$data['heading']	= $request->heading;
@@ -68,5 +66,18 @@ class DetailsCn extends Controller
 
         session()->put('details', Details::find(1));
         return redirect()->route('admin.category.details');
+    }
+
+    public function destory(Request $request, $id)
+    {
+        $delete = Details::find($id);
+        $details_img    = array('image');
+        foreach ($details_img as $key => $img) {
+            $path = 'upload/details/';
+            if($delete->$img && file_exists($path.$delete->$img)) { unlink($path.$delete->$img); }
+        }
+        $delete->delete();
+
+        return redirect()->back();
     }
 }

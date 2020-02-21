@@ -43,7 +43,7 @@
                                 </td>
                                 <td class="text-right">
                                     <a href="{{ url('admin/sub-category/create/'.$v->id) }}" id="{{ $v->id }}" class="btn btn-success" style="border-radius: 20px !important;"><i class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger" style="border-radius: 20px !important;"><i class="fa fa-trash-o"></i></a>
+                                    <button data-href="{{ url('admin/sub-category/destory/'.$v->id)}}" data-id="{{ $v->id }}" class="btn btn-danger del_btn" style="border-radius: 20px !important;"><i class="fa fa-trash-o"></i></button>
                                 </td>
                             </tr>
                             @endforeach

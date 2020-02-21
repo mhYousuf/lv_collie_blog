@@ -1,11 +1,11 @@
 @extends('adminblog.layout')
 @section('content')    
     <section class="content-header">
-        <h1>Basic Manage</h1>
+        <h1>Social Manage</h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Settings</a></li>
-            <li class="active">Basic Manage</li>
+            <li class="active">Social Manage</li>
         </ol>
     </section>
 
@@ -42,7 +42,7 @@
                                 </td>
                                 <td class="text-right">
                                     <a href="{{ url('admin/social/create/'.$v->id) }}" id="{{ $v->id }}" class="btn btn-success" style="border-radius: 20px !important;"><i class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger" style="border-radius: 20px !important;"><i class="fa fa-trash-o"></i></a>
+                                    <button data-href="{{ url('admin/social/destory/'.$v->id) }}" data-id="{{ $v->id }}" class="btn btn-danger del_btn" style="border-radius: 20px !important;"><i class="fa fa-trash-o"></i></button>
                                 </td>
                             </tr>
                             @endforeach

@@ -89,8 +89,13 @@
             <div class="col-md-12 form-group">
                 <label class="form_heading">Status</label><i class="fa fa-star fill" aria-hidden="true"></i>
                 <select class="form-control prompt nice_select wide" name="status" id="status" >
+                    if($value)
+                    <option value="1" {{ ($value->status == '1') ? 'selected' : '' }}>Active</option>
+                    <option value="0" {{ ($value->status == '0') ? 'selected' : '' }}>Inactive</option>
+                    @else
                     <option value="1" selected>Active</option>
                     <option value="0">Inactive</option>
+                    @endif
                 </select>
             </div>
         

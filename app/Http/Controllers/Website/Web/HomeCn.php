@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Website\Web\Comment;
 
 class HomeCn extends Controller
 {
@@ -14,6 +15,7 @@ class HomeCn extends Controller
 
     public function blog()
     {
-    	return view('website.pages.blog.blog');
+    	$data['comment']	= Comment::orderBy('id', 'desc')->get();
+    	return view('website.pages.blog.blog', $data);
     }
 }

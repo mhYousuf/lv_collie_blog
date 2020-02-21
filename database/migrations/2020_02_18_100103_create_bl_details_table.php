@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCtDetailsTable extends Migration
+class CreateBlDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateCtDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ct_details', function (Blueprint $table) {
+        Schema::create('bl_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('cat_id');
-            $table->unsignedBigInteger('sub_cat_id');
             $table->string('name');
             $table->string('date');
-            $table->string('image');
             $table->string('heading');
+            $table->string('image');
             $table->longText('description');
             $table->integer('status')->comment('0 = Inactive, 1 = Active');
             
@@ -37,6 +35,6 @@ class CreateCtDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ct_details');
+        Schema::dropIfExists('bl_details');
     }
 }

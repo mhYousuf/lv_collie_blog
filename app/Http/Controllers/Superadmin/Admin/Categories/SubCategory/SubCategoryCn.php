@@ -41,4 +41,13 @@ class SubCategoryCn extends Controller
     	session()->put('subcategory', SubCategory::find(1));
     	return redirect()->route('admin.subcategory');
     }
+
+    public function destory($id)
+    {
+        $delete = SubCategory::find($id);
+
+        $delete->delete();
+
+        return redirect()->back();
+    }
 }

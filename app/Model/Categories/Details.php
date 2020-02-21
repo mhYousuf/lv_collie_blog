@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Details extends Model
 {
-    protected $table	= 'ct_details';
+    protected $table	= 'bl_details';
 
     protected $fillable	= [
-    	'cat_id',
-    	'sub_cat_id',
     	'name',
     	'date',
     	'image',
@@ -21,13 +19,13 @@ class Details extends Model
     	'updated_by'
     ];
 
-    public function category()
-    {
-        return $this->belongsto('App\Model\Categories\Category', 'cat_id');
-    }
+    // public function category()
+    // {
+    //     return $this->belongsto('App\Model\Categories\Category', 'cat_id');
+    // }
 
-    public function sub_category()
-    {
-        return $this->belongsto('App\Model\Categories\SubCategory', 'sub_cat_id');
-    }
+    // public function sub_category()
+    // {
+    //     return $this->belongsto('App\Model\Categories\SubCategory', 'sub_cat_id');
+    // }
 }

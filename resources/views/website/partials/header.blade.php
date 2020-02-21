@@ -10,7 +10,7 @@
                 </ul>
 
                 <div class="nav-logo">
-                    <a href="index.php" class="logo"><img src="{{ asset('assets/website/img/logo.png')}}" alt=""></a>
+                    <a href="{{ route('web.home')}}" class="logo"><img src="{{ asset('assets/website/img/logo.png')}}" alt=""></a>
                 </div>
 
                 <div class="nav-btns">
@@ -32,7 +32,7 @@
         <div id="nav-bottom">
             <div class="container">
                 <ul class="nav-menu">
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="{{ route('web.home')}}">Home</a></li>
                     <li class="has-dropdown megamenu">
                         <a href="#">Lifestyle</a>
                         <div class="dropdown tab-dropdown">
@@ -220,8 +220,9 @@
                     <li><a href="#">Technology</a></li>
                     <li><a href="#">Health</a></li>
                     <li><a href="#">Travel</a></li>
-                    <li><a href="login.php">Sign In</a></li>
-                    <li><a href="register.php">Sign Up</a></li>
+                    <li><a href="{{ route('users.login') }}">Sign In</a></li>
+                    <li><a href="{{ route('users.register')}}">Sign Up</a></li>
+                    <li><a href="{{ route('users.post')}}">Users Post</a></li>
                 </ul>
 
             </div>
@@ -229,7 +230,7 @@
 
         <div id="nav-aside">
             <ul class="nav-aside-menu">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="{{ route('web.home')}}">Home</a></li>
                 <li class="has-dropdown"><a>Categories</a>
                     <ul class="dropdown">
                         <li><a href="#">Lifestyle</a></li>

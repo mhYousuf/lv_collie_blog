@@ -41,4 +41,15 @@ class CategoryCn extends Controller
     	session()->put('category', Category::find(1));
         return redirect()->route('admin.category');
     }
+
+    public function destory($id)
+    {
+        $delete = Category::find($id);
+
+        $delete->delete();
+
+        return redirect()->back();
+
+
+    }
 }

@@ -110,7 +110,6 @@
                             <h3 class="title">Related Posts</h3>
                         </div>
                         <div class="row">
-
                             <div class="col-md-4">
                                 <div class="post post-sm">
                                     <a class="post-img" href="blog-post.html"><img src="{{ asset('assets/website/img/post-4.jpg') }}" alt=""></a>
@@ -204,12 +203,14 @@
                                     <img class="media-object" src="{{ asset('assets/website/img/avatar-3.jpg') }}" alt="">
                                 </div>
                                 <div class="media-body">
+                                    @foreach($comment as $key =>$c)
                                     <div class="media-heading">
-                                        <h4>John Doe</h4>
+                                        <h4>{{ $c->name }}</h4>
                                         <span class="time">5 min ago</span>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <p>{{ $c->message }}</p>
                                     <a href="#" class="reply">Reply</a>
+                                    @endforeach
                                 </div>
                             </div>
 
@@ -220,26 +221,27 @@
                         <div class="section-title">
                             <h3 class="title">Leave a reply</h3>
                         </div>
-                        <form class="post-reply">
+                        <form class="post-reply" action="{{ route('comment.reply') }}" method="post">
+                            @csrf
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <textarea class="input" name="message" placeholder="Message"></textarea>
+                                        <input class="input" type="text" name="name" id="name" placeholder="Name">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <input class="input" type="text" name="name" placeholder="Name">
+                                        <input class="input" type="email" name="email" id="email" placeholder="Email">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input class="input" type="email" name="email" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <input class="input" type="text" name="website" placeholder="Website">
+                                    </div>
+                                </div> -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="input" name="message" id="message" placeholder="Message"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">

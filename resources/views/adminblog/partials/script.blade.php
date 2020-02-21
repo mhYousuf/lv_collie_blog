@@ -55,3 +55,6 @@
 <!-- toast js -->
 <script src="{{asset('assets/superadmin/sweet/script/extensions/toastr.min.js')}}"></script>
 <script src="{{asset('assets/superadmin/sweet/script/extensions/sweet-alerts.min.js')}}"></script>
+
+<!-- my js -->
+<script src="{{asset('assets/superadmin/my_assets/js/custom.js')}}"></script>

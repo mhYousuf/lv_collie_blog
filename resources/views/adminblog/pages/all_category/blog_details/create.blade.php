@@ -4,8 +4,8 @@
     <h1>Add Information</h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Settings</a></li>
-        <li class="active">Category Details Info Add</li>
+        <li><a href="#">Categories Manage</a></li>
+        <li class="active">Blog Details</li>
     </ol>
 </section>
 
@@ -18,24 +18,6 @@
     <div class="box-body">
         <form action="{{ route('admin.detailscategory.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="form-group col-md-6">
-                <label>Category Name</label>
-                <select class="form-control" id="cat_id" name="cat_id">
-                    @foreach ($category as $key => $v)
-                        <option value="{{ $v->id }}" {{ (isset($value) && $value->cat_id == $v->id) ? 'selected' : '' }}>{{ $v->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label>Sub Category Name</label>
-                <select class="form-control" id="sub_cat_id" name="sub_cat_id">
-                    @foreach ($sub_category as $key => $v)
-                        <option value="{{ $v->id }}" {{ (isset($value) && $value->sub_cat_id == $v->id) ? 'selected' : '' }}>{{ $v->subcategory_name }}</option>
-                    @endforeach
-                </select>
-            </div>
-
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Name</label><span class="fill">*</span>
@@ -60,15 +42,21 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Image</label><span class="fill">*</span>
-                    <input type="file" class="form-control" id="image" name="image" required value="{{ isset($value) ? $value->image : '' }}">
+                    <span class="pull-right text-success file_name l_img text_theme" style="padding:0px 5px;">{{ ($value) ? $value->image : '' }}</span>
+                    <input type="file" class="form-control" id="image" name="image" value="{{ isset($value) ? $value->image : '' }}">
                 </div>
             </div>
 
             <div class="col-md-12 form-group">
                 <label>Status</label><span class="fill">*</span>
                 <select class="form-control prompt nice_select wide" name="status" id="status" >
+                    @if($value)
+                    <option value="1" {{ ($value->status == '1') ? 'selected' : '' }}>Active</option>
+                    <option value="0" {{ ($value->status == '0') ? 'selected' : '' }}>Inactive</option>
+                    @else
                     <option value="1" selected>Active</option>
                     <option value="0">Inactive</option>
+                    @endif
                 </select>
             </div>
 
