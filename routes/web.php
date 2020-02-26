@@ -18,6 +18,7 @@ Route::get('/', 'HomeCn@index')->name('home');
 Route::get('blog', 'Website\Web\HomeCn@blog')->name('blog.details');
 
 Route::get('user/blog', 'Website\Web\Users\Post\PostCn@index')->name('users.post');
+Route::post('user/store', 'Website\Web\Users\Post\PostCn@store')->name('users.store');
 
 // Route::get('blog/comment', 'Website\Web\Comment\CommentCn@index')->name('blog.comment');
 Route::post('comment', 'Website\Web\Comment\CommentCn@store')->name('comment.reply');

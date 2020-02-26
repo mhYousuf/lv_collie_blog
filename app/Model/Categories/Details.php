@@ -9,7 +9,8 @@ class Details extends Model
     protected $table	= 'bl_details';
 
     protected $fillable	= [
-    	'name',
+        'name',
+    	'user_id',
     	'date',
     	'image',
     	'heading',
@@ -19,10 +20,10 @@ class Details extends Model
     	'updated_by'
     ];
 
-    // public function category()
-    // {
-    //     return $this->belongsto('App\Model\Categories\Category', 'cat_id');
-    // }
+    public function user()
+    {
+        return $this->belongsto('App\Model\Website\Users\Post\Post', 'user_id');
+    }
 
     // public function sub_category()
     // {

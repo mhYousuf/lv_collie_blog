@@ -27,12 +27,12 @@ class DetailsCn extends Controller
 
     public function store(Request $request)
     {
-    	$id 	= $request->id;
-    	$data['name']	= $request->name;
-    	$data['date']	= $request->date;
-    	$data['heading']	= $request->heading;
-    	$data['description']	= $request->description;
-    	$data['status']	= $request->status;
+    	$id 	              = $request->id;
+    	$data['name']	      = $request->name;
+    	$data['date']	      = $request->date;
+    	$data['heading']	  = $request->heading;
+    	$data['description']  = $request->description;
+    	$data['status']	      = $request->status;
 
     	$files = ['image'];
         foreach ($files as $key => $file)

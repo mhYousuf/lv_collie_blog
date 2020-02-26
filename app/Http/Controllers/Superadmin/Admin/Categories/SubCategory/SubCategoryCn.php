@@ -17,17 +17,17 @@ class SubCategoryCn extends Controller
 
     public function form(Request $request, $id = '')
     {
-    	$data['value']	= SubCategory::find($request->id);
-    	$data['category'] = Category::where(['status' => 1])->get();
+    	$data['value']	    = SubCategory::find($request->id);
+    	$data['category']   = Category::where(['status' => 1])->get();
     	return view('adminblog.pages.all_category.subcategory.create', $data);
     }
 
     public function store(Request $request)
     {
-    	$id 	= $request->id;
-    	$data['category_id']	= $request->category_id;
-    	$data['subcategory_name']	= $request->subcategory_name;
-    	$data['status']		= $request->status;
+    	$id 	                  = $request->id;
+    	$data['category_id']	  = $request->category_id;
+    	$data['subcategory_name'] = $request->subcategory_name;
+    	$data['status']		      = $request->status;
 
 
     	if (!$id) {

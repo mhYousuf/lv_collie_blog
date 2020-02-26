@@ -64,23 +64,27 @@
                             </div>
                         </div>
 
+                        @if(isset($category))
+                        @foreach($details as $key =>$dt)
                         <div class="col-md-6">
                             <div class="post">
-                                <a class="post-img" href="{{ route('blog.details')}}"><img src="{{ asset('assets/website/img/post-1.jpg') }}" alt=""></a>
+                                <a class="post-img" href="{{ route('blog.details')}}"><img src="{{ asset('upload/details/'.$dt->image) }}" alt=""></a>
                                 <div class="post-body">
                                     <div class="post-category">
-                                        <a href="category.html">Travel</a>
+                                        <a href="javascript:;" id="">{{$category->name}}</a>
                                     </div>
-                                    <h3 class="post-title"><a href="{{ route('blog.details')}}">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                                    <h3 class="post-title"><a href="{{ route('blog.details')}}" id="" class="blog">{{ $dt->heading}}</a></h3>
                                     <ul class="post-meta">
-                                        <li><a href="author.html">John Doe</a></li>
-                                        <li>20 April 2018</li>
+                                        <li class=" blog_details blog_details_{{ $dt->id }}"><a href="javascript:;">{{$dt->name}}</a></li>
+                                        <li>{{ date('d-M-Y', strtotime($dt->date)) }}</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
+                        @endif
 
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="post">
                                 <a class="post-img" href="{{ route('blog.details')}}"><img src="{{ asset('assets/website/img/post-2.jpg') }}" alt=""></a>
                                 <div class="post-body">
@@ -95,7 +99,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="clearfix visible-md visible-lg"></div>
 

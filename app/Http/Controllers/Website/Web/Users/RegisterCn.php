@@ -18,8 +18,7 @@ class RegisterCn extends Controller
     {
     	// dd($request->all());
     	$id 				= $request->id;
-    	$data['first_name']	= $request->first_name;
-    	$data['last_name']	= $request->last_name;
+    	$data['name']	    = $request->name;
     	$data['email']		= $request->email;
     	$data['phone']		= $request->phone;
     	$data['password']	= Hash::make($request->password);
@@ -35,6 +34,6 @@ class RegisterCn extends Controller
             session()->flash('faild', 'Register faild..');
         }    	
 
-    	return redirect()->back();
+    	return redirect()->route('users.login');
     }
 }

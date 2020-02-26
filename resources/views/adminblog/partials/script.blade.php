@@ -54,6 +54,7 @@
 <script src="{{asset('assets/superadmin/sweet/extensions/toastr.min.js')}}"></script>
 <!-- toast js -->
 <script src="{{asset('assets/superadmin/sweet/script/extensions/toastr.min.js')}}"></script>
+<script src="{{asset('assets/superadmin/sweet/script/extensions/toast.js')}}"></script>
 <script src="{{asset('assets/superadmin/sweet/script/extensions/sweet-alerts.min.js')}}"></script>
 
 <!-- my js -->

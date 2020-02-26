@@ -15,6 +15,7 @@ class CreateBlDetailsTable extends Migration
     {
         Schema::create('bl_details', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->default();
             $table->string('name');
             $table->string('date');
             $table->string('heading');

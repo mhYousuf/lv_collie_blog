@@ -12,16 +12,16 @@
 					  	@csrf
 					  	<div class="form-group row">
 					    	<div class="col-md-6">
-					    		<label>First Name</label>
-					      		<input type="text" class="form-control" id="first_name" name="first_name" placeholder="Type your First name">
+					    		<label>Name</label>
+					      		<input type="text" class="form-control" id="name" name="name" placeholder="Type your First name">
 					    	</div>
 					  	</div>
-					  	<div class="form-group row">
+					  	<!-- <div class="form-group row">
 					    	<div class="col-md-6">
 					    		<label>Last Name</label>
 					      		<input type="text" class="form-control" id="last_name" name="last_name" placeholder="Type your Last name">
 					    	</div>
-					  	</div>
+					  	</div> -->
 					  	<div class="form-group row">
 					    	<div class="col-md-6">
 					    		<label>Email</label>

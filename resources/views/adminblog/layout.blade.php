@@ -24,31 +24,32 @@
         </footer>
 
         @include('adminblog.partials.script')
+        
+        @if(session('insert'))
+            <script type="text/javascript">
+                $.toast({
+              heading: 'Success',
+              text: 'Data Insert Successfully.',
+              showHideTransition: 'slide',
+              icon: 'success',
+              loaderBg: '#f96868',
+              position: 'top-right'
+            });
+        </script>
+        @endif
+        @if(session('update'))
+            <script type="text/javascript">
+                $.toast({
+              heading: 'Success',
+              text: 'Data Insert Successfully.',
+              showHideTransition: 'slide',
+              icon: 'success',
+              loaderBg: '#f96868',
+              position: 'top-right'
+            });
+        </script>
+        @endif
     </div>
-    @if(session('insert'))
-        <script type="text/javascript">
-            $.toast({
-          heading: 'Success',
-          text: 'Data Insert Successfully.',
-          showHideTransition: 'slide',
-          icon: 'success',
-          loaderBg: '#f96868',
-          position: 'top-right'
-        });
-    </script>
-    @endif
-    @if(session('update'))
-        <script type="text/javascript">
-            $.toast({
-          heading: 'Success',
-          text: 'Data Insert Successfully.',
-          showHideTransition: 'slide',
-          icon: 'success',
-          loaderBg: '#f96868',
-          position: 'top-right'
-        });
-    </script>
-    @endif
 </body>
 
 </html>

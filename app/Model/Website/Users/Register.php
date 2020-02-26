@@ -10,8 +10,7 @@ class Register extends Authenticatable
 
     protected $fillable = [
         'role',
-    	'first_name',
-    	'last_name',
+    	'name',
     	'email',
     	'phone',
     	'password',
