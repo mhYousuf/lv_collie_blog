@@ -1,3 +1,8 @@
+@php
+    $categories = \App\Model\Categories\Category::has('subCat')->with(['subCat' => function($q){
+        $q->where(['status' => 1]);
+    }, 'detail'])->where(['status' => 1])->orderBy('id', 'asc')->get();
+@endphp
 <header id="header">
     <div id="nav">
         <div id="nav-top">
@@ -13,7 +18,22 @@
                     <a href="{{ route('web.home')}}" class="logo"><img src="{{ asset('assets/website/img/logo.png')}}" alt=""></a>
                 </div>
 
-                <div class="nav-btns">
+                <div class="nav-btns dropdown">
+                    <a href="javascript:;" title="My Account" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <i class="fa fa-user-o" style="font-size: 27px; padding: 5px; margin-right: 8px;"></i>
+                        <div class="dropdown-menu" style="border: none;">
+                            <div class="dropdownmenu-wrapper" style="padding: 10px; line-height: 28px;">
+                                @if (auth()->guard('webusers')->check())
+                                    <a class="dropdown-item" style="font-size: 14px;" href="{{ route('users.deshboard') }}">Dashboard</a>
+                                @else
+                                    <ul>
+                                        <li><a class="dropdown-item" style="font-size: 14px;" href="{{ route('users.login') }}">Login</a></li>
+                                        <li><a class="dropdown-item" style="font-size: 14px;" href="{{ route('users.register')}}" class="signup">Sign Up</a></li>
+                                    </ul>
+                                @endif
+                            </div>
+                        </div>
+                    </a>
                     <button class="aside-btn"><i class="fa fa-bars"></i></button>
                     <button class="search-btn"><i class="fa fa-search"></i></button>
                     <div id="nav-search">
@@ -25,7 +45,6 @@
                         </button>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -33,18 +52,30 @@
             <div class="container">
                 <ul class="nav-menu">
                     <li><a href="{{ route('web.home')}}">Home</a></li>
-                    <li class="has-dropdown megamenu">
-                        <a href="#">Lifestyle</a>
+                    @foreach($categories as $ct)
+                    <li class="has-dropdown megamenu cat">
+                        <a href="javascript:;" class="">{{$ct->name}}</a>
                         <div class="dropdown tab-dropdown">
                             <div class="row">
                                 <div class="col-md-2">
+                                    @foreach($ct->subCat as $scat)
+                                    @php
+                                        $cat_slug       = clean($ct->name.'-'.$ct->id);
+                                        $sub_cat_slug   = clean($scat->subcategory_name.'-'.$scat->id);
+                                    @endphp
                                     <ul class="tab-nav">
-                                        <li class="active"><a data-toggle="tab" href="#tab1">Lifestyle</a></li>
-                                        <li><a data-toggle="tab" href="#tab2">Fashion</a></li>
+                                        <li class="">
+                                            <a href="{{ route('blog.categories', [$cat_slug, $sub_cat_slug]) }}">
+                                                {{ $scat->subcategory_name }}
+                                            </a>
+                                        </li>
+                                        <!-- <li><a data-toggle="tab" href="#tab2">Fashion</a></li>
                                         <li><a data-toggle="tab" href="#tab1">Health</a></li>
-                                        <li><a data-toggle="tab" href="#tab2">Travel</a></li>
+                                        <li><a data-toggle="tab" href="#tab2">Travel</a></li> -->
                                     </ul>
+                                    @endforeach
                                 </div>
+                                
                                 <div class="col-md-10">
                                     <div class="dropdown-body tab-content">
 
@@ -66,44 +97,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="post post-sm">
-                                                        <a class="post-img" href="blog.php"><img src="{{ asset('assets/website/img/post-13.jpg')}}" alt=""></a>
-                                                        <div class="post-body">
-                                                            <div class="post-category">
-                                                                <a href="category.html">Travel</a>
-                                                                <a href="category.html">Lifestyle</a>
-                                                            </div>
-                                                            <h3 class="post-title title-sm"><a href="blog.php">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
-                                                            <ul class="post-meta">
-                                                                <li><a href="author.html">John Doe</a></li>
-                                                                <li>20 April 2018</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="post post-sm">
-                                                        <a class="post-img" href="blog.php"><img src="assets/img/post-12.jpg" alt=""></a>
-                                                        <div class="post-body">
-                                                            <div class="post-category">
-                                                                <a href="category.html">Lifestyle</a>
-                                                            </div>
-                                                            <h3 class="post-title title-sm"><a href="blog.php">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
-                                                            <ul class="post-meta">
-                                                                <li><a href="author.html">John Doe</a></li>
-                                                                <li>20 April 2018</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </div>
                                         </div>
 
-                                        <div id="tab2" class="tab-pane fade in">
+                                       <!--  <div id="tab2" class="tab-pane fade in">
                                             <div class="row">
 
                                                 <div class="col-md-4">
@@ -121,108 +118,23 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="post post-sm">
-                                                        <a class="post-img" href="blog.php"><img src="assets/img/post-8.jpg" alt=""></a>
-                                                        <div class="post-body">
-                                                            <div class="post-category">
-                                                                <a href="category.html">Fashion</a>
-                                                                <a href="category.html">Lifestyle</a>
-                                                            </div>
-                                                            <h3 class="post-title title-sm"><a href="blog.php">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
-                                                            <ul class="post-meta">
-                                                                <li><a href="author.html">John Doe</a></li>
-                                                                <li>20 April 2018</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-4">
-                                                    <div class="post post-sm">
-                                                        <a class="post-img" href="blog.php"><img src="assets/img/post-9.jpg" alt=""></a>
-                                                        <div class="post-body">
-                                                            <div class="post-category">
-                                                                <a href="category.html">Lifestyle</a>
-                                                            </div>
-                                                            <h3 class="post-title title-sm"><a href="blog.php">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
-                                                            <ul class="post-meta">
-                                                                <li><a href="author.html">John Doe</a></li>
-                                                                <li>20 April 2018</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </div>
-                                        </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    @endforeach
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="has-dropdown megamenu">
-                        <a href="#">Fashion</a>
-                        <div class="dropdown">
-                            <div class="dropdown-body">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <h4 class="dropdown-heading">Categories</h4>
-                                        <ul class="dropdown-list">
-                                            <li><a href="#">Lifestyle</a></li>
-                                            <li><a href="#">Fashion</a></li>
-                                            <li><a href="#">Technology</a></li>
-                                            <li><a href="#">Health</a></li>
-                                            <li><a href="#">Travel</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4 class="dropdown-heading">Lifestyle</h4>
-                                        <ul class="dropdown-list">
-                                            <li><a href="#">Lifestyle</a></li>
-                                            <li><a href="#">Fashion</a></li>
-                                            <li><a href="#">Health</a></li>
-                                        </ul>
-                                        <h4 class="dropdown-heading">Technology</h4>
-                                        <ul class="dropdown-list">
-                                            <li><a href="#">Lifestyle</a></li>
-                                            <li><a href="#">Travel</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4 class="dropdown-heading">Fashion</h4>
-                                        <ul class="dropdown-list">
-                                            <li><a href="#">Fashion</a></li>
-                                            <li><a href="#">Technology</a></li>
-                                        </ul>
-                                        <h4 class="dropdown-heading">Travel</h4>
-                                        <ul class="dropdown-list">
-                                            <li><a href="#">Lifestyle</a></li>
-                                            <li><a href="#">Healtth</a></li>
-                                            <li><a href="#">Fashion</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4 class="dropdown-heading">Health</h4>
-                                        <ul class="dropdown-list">
-                                            <li><a href="#">Technology</a></li>
-                                            <li><a href="#">Fashion</a></li>
-                                            <li><a href="#">Health</a></li>
-                                            <li><a href="#">Travel</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Health</a></li>
-                    <li><a href="#">Travel</a></li>
-                    <li><a href="{{ route('users.login') }}">Sign In</a></li>
-                    <li><a href="{{ route('users.register')}}">Sign Up</a></li>
+                    <!-- <li><a href="">Sign In</a></li>
+                    <li><a href="">Sign Up</a></li> -->
+                    <!-- <li><a href="#login-popup" data-toggle="modal">Login</a></li> -->
+                    {{--@if (auth()->guard('webusers')->check())
                     <li><a href="{{ route('users.post')}}">Users Post</a></li>
+                    @else
+                    <li><a href="{{ route('users.login') }}">Users Post</a></li>
+                    @endif--}}
                 </ul>
 
             </div>
@@ -232,20 +144,31 @@
             <ul class="nav-aside-menu">
                 <li><a href="{{ route('web.home')}}">Home</a></li>
                 <li class="has-dropdown"><a>Categories</a>
+                    @foreach($categories as $ct)
                     <ul class="dropdown">
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Fashion</a></li>
-                        <li><a href="#">Technology</a></li>
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Health</a></li>
+                        <li class="has-dropdown"><a href="#">{{$ct->name}}</a>
+                            @foreach($ct->subCat as $sct)
+                            @php
+                                $cat_slug       = clean($ct->name.'-'.$ct->id);
+                                $sub_cat_slug   = clean($sct->subcategory_name.'-'.$sct->id);
+                            @endphp
+                            <ul class="dropdown">
+                                <li class="" style="color: #ffff; line-height: 40px; ">
+                                    <a href="{{ route('blog.categories', [$cat_slug, $sub_cat_slug]) }}">
+                                        {{$sct->subcategory_name}}
+                                    </a>
+                                </li>
+                            </ul>
+                            @endforeach
+                        </li>
                     </ul>
+                    @endforeach
                 </li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contacts</a></li>
+                <li><a href="javascript:;">About Us</a></li>
+                <li><a href="javascript:;">Contacts</a></li>
                 <li><a href="#">Advertise</a></li>
             </ul>
             <button class="nav-close nav-aside-close"><span></span></button>
         </div>
-
     </div>
 </header>

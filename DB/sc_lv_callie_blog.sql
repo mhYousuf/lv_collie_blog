@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2020 at 02:04 PM
+-- Generation Time: Mar 27, 2020 at 04:42 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.3.11
 
@@ -51,7 +51,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `role`, `username`, `name`, `password`, `email`, `phone`, `nid`, `remember_token`, `email_verified_at`, `phone_verified_at`, `status`, `online`, `login_at`, `logout_at`, `created_at`, `updated_at`) VALUES
-(1, 'Superadmin', 'admin', 'MD. Yousuf Hossain', '$2y$10$6V5djGpNGjP6QG12Y.rV8.kSEiFISdOQerZOGPqPJ21VQ4sAF8PDe', 'yousufhossain50@gmail.com', '01839072709', NULL, NULL, NULL, NULL, 1, 1, '2020-02-26 06:14:34', NULL, '2020-02-25 12:17:35', '2020-02-26 06:14:34');
+(1, 'Superadmin', 'admin', 'MD. Yousuf Hossain', '$2y$10$6V5djGpNGjP6QG12Y.rV8.kSEiFISdOQerZOGPqPJ21VQ4sAF8PDe', 'yousufhossain50@gmail.com', '01839072709', NULL, NULL, NULL, NULL, 1, 1, '2020-03-27 03:22:48', NULL, '2020-02-25 12:17:35', '2020-03-27 03:22:48');
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,8 @@ INSERT INTO `basic` (`id`, `title`, `website_name`, `phone`, `email`, `logo`, `f
 CREATE TABLE `bl_details` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '1',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `sub_cat_id` int(11) NOT NULL,
   `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `heading` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -111,10 +112,11 @@ CREATE TABLE `bl_details` (
 -- Dumping data for table `bl_details`
 --
 
-INSERT INTO `bl_details` (`id`, `user_id`, `name`, `date`, `heading`, `image`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Shovo', '2020-02-26', 'Easily balance workloads and  manage resources', '1582654736.jpg', 'hmdgfdgfd', 1, NULL, NULL, '2020-02-25 12:18:55', '2020-02-25 12:18:55'),
-(2, 2, 'gg', '2020-02-26', 'I''M new WEBDISINER', '1582708684.jpg', 'jhmgfg', 1, NULL, NULL, '2020-02-25 12:24:48', '2020-02-26 03:18:03'),
-(3, 1, 'admin', '2020-02-06', 'web desing', '1582708408.jpg', 'Nihil persius id est, iisque tincidunt abhorreant no duo. Eripuit placerat mnesarchum ius at, ei pro laoreet invenire persecuti, per magna tibique scriptorem an. Aeque oportere incorrupte ius ea, utroque erroribus mel in, posse dolore nam in. Per veniam vulputate intellegam et, id usu case reprimique, ne aperiam scaevola sed. Veritus omnesque qui ad. In mei admodum maiorum iracundia, no omnis melius eum, ei erat vivendo his. In pri nonumes suscipit\r\n\r\nNihil persius id est, iisque tincidunt abhorreant no duo. Eripuit placerat mnesarchum ius at, ei pro laoreet invenire persecuti, per magna tibique scriptorem an. Aeque oportere incorrupte ius ea, utroque erroribus mel in, posse dolore nam in. Per veniam vulputate intellegam et, id usu case reprimique, ne aperiam scaevola sed. Veritus omnesque qui ad. In mei admodum maiorum iracundia, no omnis melius eum, ei erat vivendo his. In pri nonumes suscipit\r\n\r\nNihil persius id est, iisque tincidunt abhorreant no duo. Eripuit placerat mnesarchum ius at, ei pro laoreet invenire persecuti, per magna tibique scriptorem an. Aeque oportere incorrupte ius ea, utroque erroribus mel in, posse dolore nam in. Per veniam vulputate intellegam et, id usu case reprimique, ne aperiam scaevola sed. Veritus omnesque qui ad. In mei admodum maiorum iracundia, no omnis melius eum, ei erat vivendo his. In pri nonumes suscipit', 1, NULL, NULL, '2020-02-25 12:29:47', '2020-02-26 06:15:03');
+INSERT INTO `bl_details` (`id`, `user_id`, `category_id`, `sub_cat_id`, `date`, `heading`, `image`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 5, 1, 1, '2020-03-27', 'Easily balance workloads and  manage resources', '1585290136.jpg', 'Ne bonorum praesent cum, labitur persequeris definitionem quo cu Ne bonorum praesent cum, labitur persequeris definitionem quo cu Ne bonorum praesent cum, labitur persequeris definitionem quo cu Ne bonorum praesent cum, labitur persequeris definitionem quo cu Ne bonorum praesent cum, labitur persequeris definitionem quo cu', 1, NULL, NULL, '2020-03-27 00:22:15', '2020-03-27 04:57:38'),
+(3, 1, 3, 3, '2020-03-27', 'Easily balance workloads and  manage resources', '1585290415.jpg', 'Ne bonorum praesent cum, labitur persequeris definitionem quo cu Ne bonorum praesent cum, labitur persequeris definitionem quo cu \r\nNe bonorum praesent cum, labitur persequeris definitionem quo cu Ne bonorum praesent cum, labitur persequeris definitionem quo cu \r\nNe bonorum praesent cum, labitur persequeris definitionem quo cu Ne bonorum praesent cum, labitur persequeris definitionem quo cu \r\nNe bonorum praesent cum, labitur persequeris definitionem quo cu Ne bonorum praesent cum, labitur persequeris definitionem quo cu', 1, NULL, NULL, '2020-03-27 00:26:55', '2020-03-27 04:50:41'),
+(6, 1, 2, 2, '2020-03-02', 'Easily balance workloads and  manage resources', '1585303284.jpg', 'Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris. Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.\r\nMel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris. Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.\r\nMel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris. Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.', 1, NULL, NULL, '2020-03-27 04:01:23', '2020-03-27 08:15:16'),
+(12, 1, 4, 4, '2020-03-12', 'Easily balance workloads and  manage resources', '1585318984.jpg', 'XDFJSDFJDGDHGHGKkshdsjsgk', 1, NULL, NULL, '2020-03-27 08:23:03', '2020-03-27 08:23:03');
 
 -- --------------------------------------------------------
 
@@ -137,8 +139,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Movie', 1, NULL, NULL, '2020-02-26 03:06:30', '2020-02-26 03:06:30'),
-(2, 'Shovo', 1, NULL, NULL, '2020-02-26 03:34:14', '2020-02-26 03:34:14');
+(1, 'Travel', 1, NULL, NULL, '2020-03-27 00:20:07', '2020-03-27 00:20:07'),
+(2, 'Health', 1, NULL, NULL, '2020-03-27 00:23:05', '2020-03-27 00:23:05'),
+(3, 'Fashion', 1, NULL, NULL, '2020-03-27 00:25:41', '2020-03-27 00:25:41'),
+(4, 'Technology & Health', 1, NULL, NULL, '2020-03-27 04:41:54', '2020-03-27 04:41:54');
 
 -- --------------------------------------------------------
 
@@ -237,6 +241,17 @@ CREATE TABLE `sub_category` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `sub_category`
+--
+
+INSERT INTO `sub_category` (`id`, `category_id`, `subcategory_name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Travel & Lifestyle', 1, NULL, NULL, '2020-03-27 00:20:31', '2020-03-27 00:20:31'),
+(2, 2, 'TECHNOLOGY & HEALTH', 1, NULL, NULL, '2020-03-27 00:23:21', '2020-03-27 00:23:21'),
+(3, 3, 'Fashion & Health', 1, NULL, NULL, '2020-03-27 00:26:21', '2020-03-27 00:26:21'),
+(4, 4, 'Fashion & Health', 1, NULL, NULL, '2020-03-27 04:42:27', '2020-03-27 04:55:20'),
+(5, 1, 'yousuf', 0, NULL, NULL, '2020-03-27 06:07:05', '2020-03-27 06:21:51');
+
 -- --------------------------------------------------------
 
 --
@@ -268,8 +283,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `role`, `name`, `email`, `phone`, `password`, `address`, `remember_token`, `email_verified_at`, `phone_verified_at`, `status`, `online`, `login_at`, `logout_at`, `created_at`, `updated_at`) VALUES
 (1, 'Webusers', 'Shovo', 'globex@gmail.com', '0254876887', '$2y$10$OiArbgiqbQL/aq1cnRjY/uSQeBdRk4MvRNYFBLa6ItbewOb/KX3YW', ',jhggfd', NULL, NULL, NULL, 1, 0, NULL, NULL, '2020-02-25 12:19:49', '2020-02-25 12:19:49'),
-(2, 'Webusers', 'Mithu Mall', 'yousufhossain50@gmail.com', '01839072709', '$2y$10$vkksxbkdk19Ysk81Mtu1/e2a2Wpd4kgY/6yMX9EwOI49cF7Ju9hK.', 'k.,tdjgddd,ukhkgd', NULL, NULL, NULL, 1, 1, '2020-02-26 06:07:55', NULL, '2020-02-25 12:20:58', '2020-02-26 06:07:55'),
-(3, 'Webusers', 'Mithu Mall', 'yousufhossain50@gmail.com', '01839072709', '$2y$10$RhoMS68WBElXcb9cNsmpBu66D43E/tKg621bta2xXQ2eBRUOUfvrS', 'j,ftdjhfagae', NULL, NULL, NULL, 1, 0, NULL, NULL, '2020-02-25 12:22:27', '2020-02-25 12:22:27');
+(2, 'Webusers', 'Mithu Mall', 'yousufhossain50@gmail.com', '01839072709', '$2y$10$vkksxbkdk19Ysk81Mtu1/e2a2Wpd4kgY/6yMX9EwOI49cF7Ju9hK.', 'k.,tdjgddd,ukhkgd', NULL, NULL, NULL, 1, 0, '2020-03-27 03:41:07', '2020-03-27 04:28:20', '2020-02-25 12:20:58', '2020-03-27 04:28:20'),
+(3, 'Webusers', 'Mithu Mall', 'yousufhossain50@gmail.com', '01839072709', '$2y$10$RhoMS68WBElXcb9cNsmpBu66D43E/tKg621bta2xXQ2eBRUOUfvrS', 'j,ftdjhfagae', NULL, NULL, NULL, 1, 0, NULL, NULL, '2020-02-25 12:22:27', '2020-02-25 12:22:27'),
+(4, 'Webusers', 'Mehediul Hassan', 'mdmiton321@gmail.com', '01632651361', '$2y$10$QXU7Et1fTnDfSMLNTSITZ.QElAzkt4PEzZzkMIv0wKVxzUNZC.qKy', 'chandpur', NULL, NULL, NULL, 1, 1, '2020-03-25 11:57:28', NULL, '2020-03-25 11:32:30', '2020-03-25 11:57:28'),
+(5, 'Webusers', 'yousuf hossain', 'boy230728@gmail.com', '01839072709', '$2y$10$km75GuB8BW6nhV4O7mA.EueobJo7v5QJgP1hdmnLONlaCQS2eBzA6', 'chandpur', NULL, NULL, NULL, 1, 1, '2020-03-27 07:46:43', '2020-03-27 06:23:21', '2020-03-26 07:37:31', '2020-03-27 07:46:43'),
+(6, 'Webusers', 'John Doe', 'john@gmail.com', '01569874589', '$2y$10$v8UX80ZSiOGf6dZfR61eLO7BKLIpiJEfQKPwxV2ubO.mMasfrSgnK', 'Test', NULL, NULL, NULL, 1, 1, '2020-03-26 10:21:14', NULL, '2020-03-26 10:20:16', '2020-03-26 10:21:14');
 
 --
 -- Indexes for dumped tables
@@ -347,12 +365,12 @@ ALTER TABLE `basic`
 -- AUTO_INCREMENT for table `bl_details`
 --
 ALTER TABLE `bl_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `comment`
 --
@@ -372,12 +390,12 @@ ALTER TABLE `social`
 -- AUTO_INCREMENT for table `sub_category`
 --
 ALTER TABLE `sub_category`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

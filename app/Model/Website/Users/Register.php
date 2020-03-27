@@ -19,6 +19,11 @@ class Register extends Authenticatable
     	'online'
     ];
 
+    public function auser()
+    {
+        return $this->hasMany('App\Model\Auth\AuthLogin', 'id');
+    }
+
 
     protected $hidden = [
         'password', 'remember_token',

@@ -10,7 +10,9 @@ class Details extends Model
 
     protected $fillable	= [
         'name',
-    	'user_id',
+        'user_id',
+        'category_id',
+    	'sub_cat_id',
     	'date',
     	'image',
     	'heading',
@@ -22,11 +24,21 @@ class Details extends Model
 
     public function user()
     {
-        return $this->belongsto('App\Model\Website\Users\Post\Post', 'user_id');
+        return $this->belongsto('App\Model\Website\Users\Register', 'user_id');
     }
 
-    // public function sub_category()
+    // public function auser()
     // {
-    //     return $this->belongsto('App\Model\Categories\SubCategory', 'sub_cat_id');
+    //     return $this->belongsto('App\Model\Auth\AuthLogin', 'user_id');
     // }
+
+    public function sub_category()
+    {
+        return $this->belongsto('App\Model\Categories\SubCategory', 'sub_cat_id');
+    }
+
+    public function cat()
+    {
+        return $this->belongsTo('App\Model\Categories\Category', 'category_id');
+    }
 }

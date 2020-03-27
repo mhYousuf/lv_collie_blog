@@ -33,6 +33,6 @@ class LoginCn extends Controller
     		return redirect()->route('users.login');
     	}
 
-    	return redirect()->route('web.home');
+    	return redirect()->route('users.deshboard');
     }
 }

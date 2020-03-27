@@ -21,6 +21,8 @@
                         <thead>
                             <tr>
                                 <th class="text-left">SL</th>
+                                <th class="text-left">Category Name</th>
+                                <th class="text-left">Sub Category Name</th>
                                 <th class="text-left">Name</th>
                                 <th class="text-left">Date</th>
                                 <th class="text-left">Heading</th>
@@ -34,10 +36,12 @@
                             @foreach($details as $key =>$v)
                             <tr>
                                 <td class="text-left">{{ $key+1 }}</td>
+                                <td class="text-left">{{ $v->cat->name }}</td>
+                                <td class="text-left">{{ $v->sub_category->subcategory_name }}</td>
                                 <td class="text-left">{{ $v->name }}</td>
                                 <td class="text-left">{{ $v->date }}</td>
-                                <td class="text-left">{{ $v->heading }}</td>
-                                <td class="text-left"title="{{ $v->description }}">{!! substr(strip_tags($v->description), 0, 20) !!}...</td>
+                                <td class="text-left">{!! substr(strip_tags($v->heading), 0, 20) !!}...</td>
+                                <td class="text-left" title="{{ $v->description }}">{!! substr(strip_tags($v->description), 0, 40) !!}...</td>
                                 <td><img src="{{ url('upload/details/'.$v->image) }}" width="70" height="50"></td>
                                 
                                 <td align="text-center">

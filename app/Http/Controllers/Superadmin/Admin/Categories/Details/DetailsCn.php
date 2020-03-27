@@ -7,32 +7,38 @@ use Illuminate\Http\Request;
 use App\Model\Categories\Details;
 use App\Model\Categories\Category;
 use App\Model\Categories\SubCategory;
+use App\Model\Website\Users\Register;
+// use App\Model\Auth\AuthLogin;
 use Image;
 
 class DetailsCn extends Controller
 {
     public function index()
     {
-    	$data['details']	= Details::orderBy('id', 'desc')->get();
+        
+    	$data['details']	= Details::with('cat', 'sub_category')->orderBy('id', 'desc')->get();
     	return view('adminblog.pages.all_category.blog_details.index', $data);
     }
 
     public function form(Request $request)
     {
-    	$data['value']	= Details::find($request->id);
-    	$data['category']	= Category::where(['status'=> 1])->get();
-    	$data['sub_category']	= SubCategory::where(['status' => 1])->get();
+    	$data['value']	         = Details::find($request->id);
+        $data['users']           = Register::with('auser')->where(['status' => 1])->orderBy('id', 'desc')->get();
+    	$data['category']	     = Category::where(['status'=> 1])->orderBy('id', 'desc')->get();
+    	$data['sub_category']	 = SubCategory::where(['status' => 1])->orderBy('id', 'desc')->get();
     	return view('adminblog.pages.all_category.blog_details.create', $data);
     }
 
     public function store(Request $request)
     {
+        $data['user_id']      = auth()->guard('superadmin')->id();
+        $data['category_id']  = $request->category_id;
+        $data['sub_cat_id']   = $request->sub_cat_id;
+        $data['date']         = $request->date;
+        $data['heading']      = $request->heading;
+        $data['description']  = $request->description;
+        $data['status']       = $request->status;
     	$id 	              = $request->id;
-    	$data['name']	      = $request->name;
-    	$data['date']	      = $request->date;
-    	$data['heading']	  = $request->heading;
-    	$data['description']  = $request->description;
-    	$data['status']	      = $request->status;
 
     	$files = ['image'];
         foreach ($files as $key => $file)
@@ -52,6 +58,7 @@ class DetailsCn extends Controller
 
             }
         }
+        // dd($data);
 
         if (!$id) {
         	$data['created_at']	= date('Y-m-d H:i:s');

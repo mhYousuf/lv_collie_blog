@@ -14,4 +14,19 @@ class Category extends Model
     	'created_by',
     	'updated_by'
     ];
+
+    public function subCat()
+    {
+    	return $this->hasMany(SubCategory::class, 'category_id');
+    }
+
+    public function detail()
+    {
+        return $this->hasMany(Details::class, 'user_id');
+    }
+
+    public function details()
+    {
+        return $this->hasMany(Details::class, 'category_id');
+    }
 }

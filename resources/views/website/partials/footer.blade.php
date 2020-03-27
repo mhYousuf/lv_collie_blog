@@ -4,7 +4,7 @@
             <div class="col-md-3">
                 <div class="footer-widget">
                     <div class="footer-logo">
-                        <a href="index.html" class="logo"><img src="assets/img/logo-alt.png" alt=""></a>
+                        <a href="javascript:;" class="logo"><img src="{{ asset('assets/website/img/logo-alt.png')}}" alt=""></a>
                     </div>
                     <p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
                     <ul class="contact-social">
@@ -44,11 +44,18 @@
                             <li><a href="#">News</a></li>
                             <li><a href="#">Magazine</a></li>
                             <li><a href="#">Food</a></li>
-                            <li><a href="#">Health</a></li>
+
                         </ul>
+                            @if (auth()->guard('webusers')->check())
+                            <li><a href="{{ route('users.deshboard') }}"> Deshboard</a></li>
+                            @else
+                            <li><a href="{{ route('users.register')}}">Sing Up</a></li>
+                            <li><a href="{{ route('users.login') }}"> Login</a></li>
+                            @endif
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-3">
                 <div class="footer-widget">
                     <h3 class="footer-title">Newsletter</h3>

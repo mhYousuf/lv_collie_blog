@@ -33,12 +33,11 @@
                         </div>
                     </div>
 
-                        @if(isset($detail->id))
                     <div class="section-row">
                         <h3>{{$detail->heading}}</h3>
                         <figure class="pull-right">
                             <img src="{{ asset('upload/details/'.$detail->image) }}" alt="image">
-                            <figcaption>Lorem ipsum dolor sit amet, mea ad idque detraxit,</figcaption>
+                            <!-- <figcaption>Lorem ipsum dolor sit amet, mea ad idque detraxit,</figcaption> -->
                         </figure>
                         <p>{{$detail->description}}</p>
                         <!-- <p>Nihil persius id est, iisque tincidunt abhorreant no duo. Eripuit placerat mnesarchum ius at, ei pro laoreet invenire persecuti, per magna tibique scriptorem an. Aeque oportere incorrupte ius ea, utroque erroribus mel in, posse dolore nam in. Per veniam vulputate intellegam et, id usu case reprimique, ne aperiam scaevola sed. Veritus omnesque qui ad. In mei admodum maiorum iracundia, no omnis melius eum, ei erat vivendo his. In pri nonumes suscipit.</p>
@@ -55,7 +54,6 @@
                         <p>No possim singulis sea, dolores salutatus interpretaris eam ad. An singulis postulant his, an inermis urbanitas mel. Wisi veri noster eu est, diam ridens eum in. Omnium imperdiet patrioque quo in, est sumo persecuti abhorreant ei. Sed feugiat iracundia id, inermis percipit eu has.</p>
                         <p>In vidit homero ullamcorper his, ea mea senserit constituto, et alia idque congue sit. Postea percipit his ne. Probo movet noluisse in nam, sed ex utroque inermis corrumpit, oratio tation vix at. Usu aperiri assentior at, eam et melius iudicabit pertinacia.</p> -->
                     </div>
-                        @endif
 
                     <div class="section-row">
                         <div class="post-tags">

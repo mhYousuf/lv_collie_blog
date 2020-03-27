@@ -1,0 +1,59 @@
+.usr_des { margin-top: 25px; padding: 10px; text-align: center; }
+
+.usr_des h1{ color: red; font-style: italic; }
+
+.list { line-height: 30px; margin-left: 12px; }
+
+.usr_menu_box{
+    box-shadow: 0px 0px 5px #ccc;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.usr_content_box {
+    box-shadow: 0px 0px 5px #ccc;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.dasboard-body {
+	box-shadow: 0px 0px 5px #ccc;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.box-body {
+	box-shadow: 0px 0px 5px #ccc;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.box-form {
+	box-shadow: 0px 0px 5px #ccc;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.sidebar {
+	position: relative;
+    font-size: 1.3rem;
+}
+
+/*.ac {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  font-size: 18px;
+}*/
+
+/*.ac:hover {
+  background-color: #ccc;
+  color: black;
+  border-bottom: 1px;
+}*/

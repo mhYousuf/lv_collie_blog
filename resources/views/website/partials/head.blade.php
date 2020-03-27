@@ -6,7 +6,15 @@
 <link type="text/css" rel="stylesheet" href="{{ asset('assets/website/css/bootstrap.min.css')}}" />
 <link rel="stylesheet" href="{{ asset('assets/website/css/font-awesome.min.css')}}">
 <link type="text/css" rel="stylesheet" href="{{ asset('assets/website/css/style.css')}}" />
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+
+<link rel="stylesheet" href="{{asset('assets/superadmin/vendor/datatables/dataTables.bootstrap4.css') }}">
+
+<!-- sweet alart -->
+<link rel="shortcut icon" href="{{asset('assets/superadmin/sweet/css/extensions/sweetalert2.min.css')}}">
+
+<!-- <link rel="shortcut icon" href="{{asset('assets/superadmin/sweet/css/extensions/toastr.css')}}"> -->
+<link rel="shortcut icon" href="{{asset('assets/superadmin/sweet/css/toastr/extensions/toastr.min.css')}}">
+<link rel="shortcut icon" href="{{asset('assets/superadmin/sweet/css/toastr/extensions/toast.css')}}">
+
+<link type="text/css" rel="stylesheet" href="{{ asset('assets/website/my_assets/css/custom.css') }}" />
+

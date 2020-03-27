@@ -63,18 +63,18 @@
                                 <h2 class="title">Recent posts</h2>
                             </div>
                         </div>
-
+                        @if(count($details) > 0)
                         @foreach ($details as $key => $v)
                         <div class="col-md-6">
                             <div class="post">
-                                <a class="post-img" href="{{ route('blog.details', [clean($v->cat->name.'-'.$v->sub_cat_id)]) }}">
+                                <a class="post-img" href="{{ route('blog.details', [clean($v->user->name.'-'.$v->sub_cat_id)]) }}">
                                     <img src="{{ asset('upload/details/'.$v->image) }}" height="200" alt="">
                                 </a>
                                 <div class="post-body">
                                     <div class="post-category">
-                                        <a href="javascript:;" id="" value="">{{ $v->cat->name }}, {{ $v->sub_category->subcategory_name }}</a>
+                                        <a href="javascript:;" id="">{{$v->sub_category->subcategory_name}}</a>
                                     </div>
-                                    <h3 class="post-title"><a href="{{ route('blog.details', [clean($v->cat->name.'-'.$v->sub_cat_id)]) }}" id="" class="blog">{{ $v->heading}}</a></h3>
+                                    <h3 class="post-title"><a href="{{ route('blog.details', [clean($v->user->name.'-'.$v->category_id)]) }}" id="" class="blog">{{ $v->heading}}</a></h3>
                                     <ul class="post-meta">
                                         <li><a href="javascript:;">{{ $v->user->name }}</a></li>
                                         <li>{{ date('d-M-Y', strtotime($v->date)) }}</li>
@@ -83,59 +83,31 @@
                             </div>
                         </div>
                         @endforeach
-
-                        <!-- <div class="col-md-6">
-                            <div class="post">
-                                <a class="post-img" href="javascript:;"><img src="{{ asset('assets/website/img/post-2.jpg') }}" alt=""></a>
-                                <div class="post-body">
-                                    <div class="post-category">
+                        @else
+                        <div class="col-md-12">
+                            <div class="post" style="margin-top: 30px; ">
+                                <!-- <a class="post-img" href="javascript:;"><img src="{{ asset('assets/website/img/post-2.jpg') }}" alt=""></a> -->
+                                <!-- <div class="post-body"> -->
+                                   <!--  <div class="post-category">
                                         <a href="category.html">Technology</a>
                                         <a href="category.html">Lifestyle</a>
-                                    </div>
-                                    <h3 class="post-title"><a href="javascript:;">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
-                                    <ul class="post-meta">
+                                    </div> -->
+                                    <h3 class="post-title text-center" style="color: #ea3d21; ">Details NoT Found!</h3>
+                                    <!-- <ul class="post-meta">
                                         <li><a href="author.html">John Doe</a></li>
                                         <li>20 April 2018</li>
-                                    </ul>
-                                </div>
+                                    </ul> -->
+                                <!-- </div> -->
                             </div>
-                        </div> -->
+                        </div>
+                        @endif
+                        
+
 
                         <div class="clearfix visible-md visible-lg"></div>
 
                     </div>
-                    @foreach($categories as $key =>$cat)
-                    <div class="row">
-                        <div class="col-md-12" id="">
-                            <div class="section-title">
-                                <h2 class="title">{{$cat->name}}</h2>
-                                <div class="pull-right">
-                                    <a class="title" href="{{ route('blog.categories', [clean($cat->name.'-'.$cat->id)]) }}" class="btn btn-outline-primary">See more</a>
-                                </div>
-                            </div>
-                        </div>
-                        @foreach($cat->details as $dt)
-                        <div class="col-md-4">
-                            <div class="post post-sm">
-                                <a class="post-img" href="{{ route('blog.details', [clean($dt->user->name.'-'.$dt->sub_cat_id)]) }}">
-                                    <img src="{{ asset('upload/details/'.$dt->image) }}" alt="">
-                                </a>
-                                <div class="post-body">
-                                    <div class="post-category">
-                                        <a href="{{ route('blog.details', [clean($dt->user->name.'-'.$dt->sub_cat_id)]) }}">{{$dt->cat->name}}, {{ $dt->sub_category->subcategory_name }}
-                                        </a>
-                                    </div>
-                                    <h3 class="post-title title-sm"><a href="javascript:;">{{$dt->heading}}</a></h3>
-                                    <ul class="post-meta">
-                                        <li><a href="javascript:;">{{$dt->user->name}}</a></li>
-                                        <li>{{ date('d-M-Y', strtotime($dt->date)) }}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                    @endforeach
+                   
                 </div>
                 <div class="col-md-4">
 
