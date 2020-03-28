@@ -24,14 +24,9 @@
                     <!-- <input type="text" class="form-control" id="name" name="name" required placeholder="Type your name"> -->
                     <select type="text" class="form-control" id="user_id" name="user_id">
                         @foreach($users as $key =>$v)
-                        <option value="{{ $v->id }}" {{ (isset($value) && $value->user_id == $v->id) ? 'selected' : '' }}>
-                            {{ $v->name }}
-                        </option>
-                        @foreach($v->auser as $key =>$as)
-                         <option value="{{ $as->id}}" {{ (isset($value) && $value->user_id == $v->id) ? 'selected' : '' }}>
-                            {{ $as->username }}
-                        </option>
-                        @endforeach
+                            <option value="{{ $v->id }}" {{ (isset($value) && $value->user_id == $v->id) ? 'selected' : '' }}>
+                                {{ $v->email }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
@@ -50,7 +45,7 @@
 
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Category Name</label><span class="fill">*</span>
+                    <label>Sub Category Name</label><span class="fill">*</span>
                     <select class="form-control" id="sub_cat_id" name="sub_cat_id">
                         @foreach ($sub_category as $key => $v)
                             <option value="{{ $v->id }}" {{ (isset($value) && $value->sub_cat_id == $v->id) ? 'selected' : '' }}>{{ $v->subcategory_name }}</option>

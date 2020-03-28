@@ -76,7 +76,7 @@
                                     </div>
                                     <h3 class="post-title"><a href="{{ route('blog.details', [clean($v->cat->name.'-'.$v->sub_cat_id)]) }}" id="" class="blog">{{ $v->heading}}</a></h3>
                                     <ul class="post-meta">
-                                        <li><a href="javascript:;">{{ $v->user->name }}</a></li>
+                                        <li><a href="javascript:;">By - {{ $v->user->name }}</a></li>
                                         <li>{{ date('d-M-Y', strtotime($v->date)) }}</li>
                                     </ul>
                                 </div>
@@ -127,7 +127,7 @@
                                     </div>
                                     <h3 class="post-title title-sm"><a href="javascript:;">{{$dt->heading}}</a></h3>
                                     <ul class="post-meta">
-                                        <li><a href="javascript:;">{{$dt->user->name}}</a></li>
+                                        <li><a href="javascript:;">By - {{$dt->user->name}}</a></li>
                                         <li>{{ date('d-M-Y', strtotime($dt->date)) }}</li>
                                     </ul>
                                 </div>
@@ -178,13 +178,21 @@
                             <h2 class="title">Categories</h2>
                         </div>
                         <div class="category-widget">
+
+                            @foreach($categories as $key =>$cat)
+                            @php
+                                $category = 0;
+                                $subcategory = 1;
+
+                            @endphp
                             <ul>
-                                <li><a href="#">Lifestyle <span>451</span></a></li>
-                                <li><a href="#">Fashion <span>230</span></a></li>
+                                <li><a href="#">{{$cat->name}} <span>{{$category+$subcategory}}</span></a></li>
+                                <!-- <li><a href="#">Fashion <span>230</span></a></li>
                                 <li><a href="#">Technology <span>40</span></a></li>
                                 <li><a href="#">Travel <span>38</span></a></li>
-                                <li><a href="#">Health <span>24</span></a></li>
+                                <li><a href="#">Health <span>24</span></a></li> -->
                             </ul>
+                            @endforeach
                         </div>
                     </div>
 

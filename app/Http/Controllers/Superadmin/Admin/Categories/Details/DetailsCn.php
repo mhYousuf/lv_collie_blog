@@ -23,7 +23,7 @@ class DetailsCn extends Controller
     public function form(Request $request)
     {
     	$data['value']	         = Details::find($request->id);
-        $data['users']           = Register::with('auser')->where(['status' => 1])->orderBy('id', 'desc')->get();
+        $data['users']           = Register::where(['status' => 1])->orderBy('id', 'desc')->get();
     	$data['category']	     = Category::where(['status'=> 1])->orderBy('id', 'desc')->get();
     	$data['sub_category']	 = SubCategory::where(['status' => 1])->orderBy('id', 'desc')->get();
     	return view('adminblog.pages.all_category.blog_details.create', $data);
@@ -31,7 +31,7 @@ class DetailsCn extends Controller
 
     public function store(Request $request)
     {
-        $data['user_id']      = auth()->guard('superadmin')->id();
+        $data['user_id']      = $request->user_id;
         $data['category_id']  = $request->category_id;
         $data['sub_cat_id']   = $request->sub_cat_id;
         $data['date']         = $request->date;

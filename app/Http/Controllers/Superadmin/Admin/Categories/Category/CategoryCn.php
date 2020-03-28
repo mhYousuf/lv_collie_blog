@@ -11,13 +11,13 @@ class CategoryCn extends Controller
     public function index()
     {
     	$data['category']	= Category::orderBy('id', 'desc')->get();
-    	return view('adminblog.pages.all_category.Category.index', $data);
+    	return view('adminblog.pages.all_category.category.index', $data);
     }
 
     public function form(Request $request, $id = '')
     {
     	$data['value']	= Category::find($request->id);
-    	return view('adminblog.pages.all_category.Category.create', $data);
+    	return view('adminblog.pages.all_category.category.create', $data);
     }
 
     public function store(Request $request)

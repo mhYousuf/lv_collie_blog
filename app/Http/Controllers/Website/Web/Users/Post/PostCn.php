@@ -15,7 +15,7 @@ class PostCn extends Controller
     public function index()
     {
         $usr_id = auth()->guard('webusers')->id();
-        $data['users_post']  = Details::with('user')->where(['user_id' => $usr_id, 'status' => 1])->orderBy('id', 'desc')->get();
+        $data['users_post']  = Details::with('user')->where(['user_id' => $usr_id])->orderBy('id', 'desc')->get();
         return view('website.pages.users.blog.index', $data);
     }
 

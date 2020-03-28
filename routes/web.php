@@ -10,6 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/cache:clear',function(){
+  Artisan::call('cache:clear');
+  return 'cache:clear';
+});
+
+Route::get('/view:clear',function(){
+   Artisan::call('view:clear');
+   return 'view:clear';
+});
+Route::get('/config:cache',function(){
+   Artisan::call('config:cache');
+   return 'config:cache';
+});
+Route::get('/route:clear',function(){
+   Artisan::call('route:clear');
+   return 'route:clear';
+});
+
 Route::get('/', 'Website\Web\HomeCn@index')->name('web.home');
 Route::group(['prefix' => 'user', 'namespace' => 'Website\Web\Users', 'as' => 'users.', 'middleware' => 'webauth'], function()
 {
