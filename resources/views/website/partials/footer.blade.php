@@ -49,7 +49,7 @@
                             @if (auth()->guard('webusers')->check())
                             <li><a href="{{ route('users.deshboard') }}"> Deshboard</a></li>
                             @else
-                            <li><a href="{{ route('users.register')}}">Sing Up</a></li>
+                            <li><a href="{{ route('users.register.index')}}">Sing Up</a></li>
                             <li><a href="{{ route('users.login') }}"> Login</a></li>
                             @endif
                     </div>

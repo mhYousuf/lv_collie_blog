@@ -20,8 +20,18 @@
                             </div>
                         @endif
                     </div>
+                    <div>
+                	@if(session()->has('msg'))
+                	<div class="alert alert-danger">
+                        <ul>
+                            <li>{{ session('msg') }}</li>
+                            <li>{{ session('type') }}</li>
+                        </ul>
+                    </div>
+                    @endif
+                    </div>
 
-				    <form action="{{ route('register.store')}}" method="post">
+				    <form action="{{ route('users.auth.register')}}" method="POST">
 					  	@csrf
 					  	<div class="form-group row">
 					    	<div class="col-md-6">
@@ -44,7 +54,7 @@
 					  	<div class="form-group row">
 					    	<div class="col-md-6">
 					    		<label>Phone</label>
-					      		<input type="phone" class="form-control" id="phone" name="phone" required value="{{ old('phone') }}" placeholder="Type your phone">
+					      		<input type="number" min="0" type="phone" class="form-control" id="phone" name="phone" required value="{{ old('phone') }}" placeholder="Type your phone">
 					    	</div>
 					  	</div>
 					  	<div class="form-group row">
@@ -72,6 +82,4 @@
 		</div>
 	</div>
 </div>
-
-
 @endsection

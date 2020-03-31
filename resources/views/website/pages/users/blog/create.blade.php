@@ -18,7 +18,7 @@
 				<div class="section-row">
             		@include('website.pages.users.deshboard.user_siderbar')
 				    <div class="col-md-8 box-form">
-					    <form class="" action="{{ route('users.profile.store')}}" method="post" enctype="multipart/form-data">
+					    <form class="" action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
 						  	@csrf
 						  	<div class="form-group">
 						  		<div class="row">

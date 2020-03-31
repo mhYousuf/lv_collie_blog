@@ -28,7 +28,7 @@
                                 @else
                                     <ul>
                                         <li><a class="dropdown-item" style="font-size: 14px;" href="{{ route('users.login') }}">Login</a></li>
-                                        <li><a class="dropdown-item" style="font-size: 14px;" href="{{ route('users.register')}}" class="signup">Sign Up</a></li>
+                                        <li><a class="dropdown-item" style="font-size: 14px;" href="{{ route('users.register.index')}}" class="signup">Sign Up</a></li>
                                     </ul>
                                 @endif
                             </div>

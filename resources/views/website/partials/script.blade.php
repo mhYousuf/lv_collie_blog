@@ -27,3 +27,5 @@
 
 <!-- my js -->
 <script src="{{asset('assets/website/my_assets/js/custom.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
+<script src="{{asset('assets/website/my_assets/js/sweetalert.min.js')}}"></script>

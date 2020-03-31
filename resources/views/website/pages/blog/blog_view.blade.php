@@ -12,7 +12,7 @@
                         </div>
                     </div>
 
-                    @foreach ($details as $key => $v)
+                    @foreach ($view as $key => $v)
                     <div class="col-md-6">
                         <div class="post">
                             <a class="post-img" href="{{ route('blog.details', [clean($v->heading.'-'.$v->post_id)]) }}">
@@ -35,43 +35,7 @@
                     @endforeach
 
                     <div class="clearfix visible-md visible-lg"></div>
-
                 </div>
-                @foreach($categories as $key =>$cat)
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="section-title">
-                            <h2 class="title">{{$cat->name}}</h2>
-                            <div class="pull-right see-btn">
-                                <a href="{{ route('blog.categories', [clean($cat->name.'-'.$cat->id)]) }}" class="btn btn-primary title">See more</a>
-                            </div>
-                        </div>
-                    </div>
-                    @foreach($cat->details as $dt)
-                    <div class="col-md-4">
-                        <div class="post post-sm">
-                            <a class="post-img" href="{{ route('blog.details', [clean($dt->heading.'-'.$dt->post_id)]) }}">
-                                <img src="{{ asset('upload/details/'.$dt->image) }}" alt="">
-                            </a>
-                            <div class="post-body">
-                                <div class="post-category">
-                                    <a href="javascript:;">{{$dt->cat->name}}, {{ $dt->sub_category->subcategory_name }}</a>
-                                </div>
-                                <h3 class="post-title title-sm">
-                                    <a href="{{ route('blog.details', [clean($dt->heading.'-'.$dt->post_id)]) }}">
-                                        {!! substr(strip_tags($dt->heading), 0, 50) !!} ...
-                                    </a>
-                                </h3>
-                                <ul class="post-meta">
-                                    <li><a href="javascript:;">By - {{$dt->user->username}}</a></li>
-                                    <li>{{ date('d-M-Y', strtotime($dt->date)) }}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-                @endforeach
             </div>
 
             <div class="col-md-4">
@@ -254,7 +218,7 @@
                         </div>
                         <h3 class="post-title">
                             <a href="{{ route('blog.details', [clean($cv->heading.'-'.$cv->post_id)]) }}">
-                                {!! substr(strip_tags($cv->heading), 0, 40) !!} ...
+                                {!! substr(strip_tags($cv->heading), 0, 50) !!} ...
                             </a>
                         </h3>
                     </div>
@@ -265,41 +229,10 @@
     </div>
 </div>
 
-<div class="section">
+<!-- <div class="section">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                @foreach($cposts as $cp)
-                @if($loop->iteration > 7) @break @endif
-                <div class="post post-row">
-                    <a class="post-img" href="{{ route('blog.details', [clean($cp->heading.'-'.$cp->post_id)]) }}">
-                        <img src="{{ asset('upload/details/'.$cp->image) }}" alt="{{ $cp->image }}" width="100%" height="200">
-                    </a>
-                    <div class="post-body">
-                        <div class="post-category">
-                            <a href="javascript:;">{{$cp->cat->name}}</a>
-                            <a href="javascript:;">{{$cp->sub_category->subcategory_name}}</a>
-                        </div>
-                        <h3 class="post-title">
-                            <a href="{{ route('blog.details', [clean($cv->heading.'-'.$cv->post_id)]) }}">
-                                {!! substr(strip_tags($cp->heading), 0, 50) !!} ...
-                            </a>
-                        </h3>
-                        <ul class="post-meta">
-                            <li><a href="javascript:;">By - {{$cp->user->username}}</a></li>
-                            <li>{{ date('d-M-Y', strtotime($cp->date)) }}</li>
-                        </ul>
-                        <p>{!! substr(strip_tags($cp->description), 0, 50) !!} ...</p>
-                    </div>
-                </div>
-                @endforeach
-
-                <div class="section-row loadmore text-center">
-                    <a href="{{ route('blog.view')}}" class="primary-button">Load More</a>
-                </div>
-            </div>
             <div class="col-md-4">
-
                 <div class="aside-widget">
                     <div class="section-title">
                         <h2 class="title">Instagram</h2>
@@ -336,5 +269,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 @endsection

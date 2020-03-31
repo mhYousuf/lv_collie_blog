@@ -35,13 +35,14 @@ Route::group(['prefix' => 'user', 'namespace' => 'Website\Web\Users', 'as' => 'u
 {
 Route::get('index', 'Post\PostCn@index')->name('index');
 Route::get('blog/{id?}', 'Post\PostCn@post')->name('post');
-Route::post('store', 'Post\PostCn@store')->name('store');
+Route::post('blog/store', 'Post\PostCn@store')->name('store');
 Route::get('destroy/{id}', 'Post\PostCn@destroy')->name('destroy');
 });
 
 Route::group(['as' => 'blog.'], function(){
 Route::get('blog/categories/{cat_slug}/{sub_cat_slug?}', 'Website\Web\HomeCn@blog')->name('categories');
 Route::get('blog/details/{dl_slug}', 'Website\Web\HomeCn@details')->name('details');
+Route::get('blog/view', 'Website\Web\HomeCn@view')->name('view');
 });
 
 Route::group(['as' => 'users.'], function(){
@@ -55,9 +56,10 @@ Route::post('user/store', 'Website\Web\Users\ProfileCn@store')->name('profile.st
 // Route::get('blog/comment', 'Website\Web\Comment\CommentCn@index')->name('blog.comment');
 Route::post('comment', 'Website\Web\Comment\CommentCn@store')->name('comment.reply');
 
-
-Route::get('register', 'Website\Web\Users\RegisterCn@index')->name('users.register');
-Route::post('register/store', 'Website\Web\Users\RegisterCn@store')->name('register.store');
+// Route::group(['as' => 'user.'], function(){
+// Route::get('register', 'Website\Web\Users\RegisterCn@index')->name('register.index');
+// Route::post('register/store', 'Website\Web\Users\RegisterCn@store')->name('auth.register');
+// });
 
 
 Route::group(['prefix' => 'users-auth', 'as' => 'users.', 'namespace' => 'Website\Web\Users'], function()
@@ -65,5 +67,7 @@ Route::group(['prefix' => 'users-auth', 'as' => 'users.', 'namespace' => 'Websit
 	Route::get('login', 'LoginCn@index')->name('login');
 	Route::post('logout', 'LogoutCn@logout')->name('auth.logout');
 	Route::post('user', 'LoginCn@login')->name('auth');
+  Route::get('register', 'RegisterCn@index')->name('register.index');
+  Route::post('register/store', 'RegisterCn@store')->name('auth.register');
 });
 

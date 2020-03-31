@@ -1,21 +1,21 @@
 @extends('website.layout')
 @section('content')
     <!-- <div id=""> -->
-        <div class="container-fliud slider_wrap" style="background-image: url('{{ asset('upload/details/'.$post->image) }}');" data-stellar-background-ratio="0.5">
+        <div class="container-fliud slider_wrap" style="background-image: url('{{ asset('upload/details/'.$detail->image) }}');" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 headr_wrap">
                     <div class="post-category">
-                        <a href="javasrcipt:;">{{$post->cat->name}}, {{ $post->sub_category->subcategory_name }}</a>
+                        <a href="javasrcipt:;">{{$detail->cat->name}}, {{ $detail->sub_category->subcategory_name }}</a>
                     </div>
                     <h1>
-                        <a href="{{ route('blog.details', [clean($post->heading.'-'.$post->post_id)]) }}">
-                            {!! substr(strip_tags($post->heading), 0, 250) !!} ...
+                        <a href="{{ route('blog.details', [clean($detail->heading.'-'.$detail->post_id)]) }}">
+                            {!! substr(strip_tags($detail->heading), 0, 250) !!} ...
                         </a>
                     </h1>
                     <ul class="post-meta post-name">
-                        <li><a href="javasrcipt:;">John Doe</a></li>
-                        <li>{{ date('d-M-Y', strtotime($post->date)) }}</li>
+                        <li><a href="javasrcipt:;">{{$detail->user->name}}</a></li>
+                        <li>{{ date('d-M-Y', strtotime($detail->date)) }}</li>
                         <li><i class="fa fa-comments"></i> 3</li>
                         <li><i class="fa fa-eye"></i> 807</li>
                     </ul>
