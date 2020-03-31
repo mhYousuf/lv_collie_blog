@@ -7,6 +7,10 @@
                 <a href="{{ route('users.deshboard') }}" class="ac">&nbsp; Dashboard</a>
             </li>
 
+            <li class="active"><i class="fa fa-caret-right" aria-hidden="true"></i>
+                <a href="{{ route('users.profile')}}" class="ac">&nbsp; User Profile</a>
+            </li>
+
             <li class=""><i class="fa fa-caret-right" aria-hidden="true"></i>
                 <a href="{{ route('users.post')}}" class="ac">&nbsp; User Post</a>
             </li>

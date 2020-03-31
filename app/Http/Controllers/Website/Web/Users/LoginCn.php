@@ -19,10 +19,10 @@ class LoginCn extends Controller
     public function login(Request $request)
     {
     	// dd($request->all());
-    	$email		= $request->email;
-    	$password	= $request->password;
+    	$username		= $request->username;
+    	$password	    = $request->password;
 
-    	if (auth()->guard('webusers')->attempt(['email' => $email, 'password' => $password])) {
+    	if (auth()->guard('webusers')->attempt(['username' => $username, 'password' => $password])) {
     		$log['online']	= 1;
     		$log['login_at']	= \Carbon\Carbon::now();
 

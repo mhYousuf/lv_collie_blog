@@ -30,7 +30,8 @@ class PostCn extends Controller
 
     public function store(Request $request)
     {
-        $data['user_id']      = auth()->guard('webusers')->id();
+        $data['post_id']        = uniqNum();
+        $data['user_id']        = auth()->guard('webusers')->id();
         $data['category_id']  = $request->category_id;
         $data['sub_cat_id']   = $request->sub_cat_id;
         $data['date']         = $request->date;

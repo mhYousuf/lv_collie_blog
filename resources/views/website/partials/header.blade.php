@@ -1,7 +1,7 @@
 @php
     $categories = \App\Model\Categories\Category::has('subCat')->with(['subCat' => function($q){
         $q->where(['status' => 1]);
-    }, 'detail'])->where(['status' => 1])->orderBy('id', 'asc')->get();
+    }, 'details'])->where(['status' => 1])->orderBy('id', 'asc')->get();
 @endphp
 <header id="header">
     <div id="nav">
@@ -54,7 +54,7 @@
                     <li><a href="{{ route('web.home')}}">Home</a></li>
                     @foreach($categories as $ct)
                     <li class="has-dropdown megamenu cat">
-                        <a href="javascript:;" class="">{{$ct->name}}</a>
+                        <a href="javascript:;" class="cat">{{$ct->name}}</a>
                         <div class="dropdown tab-dropdown">
                             <div class="row">
                                 <div class="col-md-2">
@@ -82,44 +82,32 @@
                                         <div id="tab1" class="tab-pane fade in active">
                                             <div class="row">
 
+                                                @foreach($ct->details as $dt)
+                                                @if($loop->iteration > 3) @break @endif
                                                 <div class="col-md-4">
                                                     <div class="post post-sm">
-                                                        <a class="post-img" href="blog.php"><img src="{{ asset('assets/website/img/post-10.jpg')}}" alt=""></a>
+                                                        <a class="post-img" href="{{ route('blog.details', [clean($dt->heading.'-'.$dt->post_id)]) }}">
+                                                            <img src="{{ asset('upload/details/'.$dt->image) }}" alt="{{ $dt->image }}" width="100%" height="150">
+                                                        </a>
                                                         <div class="post-body">
                                                             <div class="post-category">
-                                                                <a href="category.html">Travel</a>
+                                                                <a href="javascript:;">{{$dt->cat->name}}, {{ $dt->sub_category->subcategory_name }}</a>
                                                             </div>
-                                                            <h3 class="post-title title-sm"><a href="blog.php">Sed ut perspiciatis, unde omnis iste natus error sit</a></h3>
+                                                            <h3 class="post-title title-sm">
+                                                                <a href="{{ route('blog.details', [clean($dt->heading.'-'.$dt->post_id)]) }}">
+                                                                    {!! substr(strip_tags($dt->heading), 0, 50) !!} ...
+                                                                </a>
+                                                            </h3>
                                                             <ul class="post-meta">
-                                                                <li><a href="author.html">John Doe</a></li>
-                                                                <li>20 April 2018</li>
+                                                                <li><a href="javascript:;">By - {{$dt->user->username}}</a></li>
+                                                                <li>{{ date('d-M-Y', strtotime($dt->date)) }}</li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @endforeach
                                             </div>
                                         </div>
-
-                                       <!--  <div id="tab2" class="tab-pane fade in">
-                                            <div class="row">
-
-                                                <div class="col-md-4">
-                                                    <div class="post post-sm">
-                                                        <a class="post-img" href="blog.php"><img src="assets/img/post-5.jpg" alt=""></a>
-                                                        <div class="post-body">
-                                                            <div class="post-category">
-                                                                <a href="category.html">Lifestyle</a>
-                                                            </div>
-                                                            <h3 class="post-title title-sm"><a href="blog.php">Postea senserit id eos, vivendo periculis ei qui</a></h3>
-                                                            <ul class="post-meta">
-                                                                <li><a href="author.html">John Doe</a></li>
-                                                                <li>20 April 2018</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +124,6 @@
                     <li><a href="{{ route('users.login') }}">Users Post</a></li>
                     @endif--}}
                 </ul>
-
             </div>
         </div>
 

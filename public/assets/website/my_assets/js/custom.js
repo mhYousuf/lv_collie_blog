@@ -36,6 +36,14 @@
         });
          
     });
+
+
+    $('.cat').click(function(){
+    var id = $(this).attr('id');
+    $('.cat_details').fadeOut(300);
+    $('.cat_details_'+id).fadeIn(300);
+});
+    
 });
 
 $('.blog').click(function(){
@@ -44,9 +52,9 @@ $('.blog').click(function(){
     $('.blog_details_'+id).fadeIn(300);
 });
 
-$('.cat').click(function(){
-    var id = $(this).attr('id');
-    $('.cat_details').fadeOut(300);
-    $('.cat_details_'+id).fadeIn(300);
-});
+// $('.cat').click(function(){
+//     var id = $(this).attr('id');
+//     $('.cat_details').fadeOut(300);
+//     $('.cat_details_'+id).fadeIn(300);
+// });
 

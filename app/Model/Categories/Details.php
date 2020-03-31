@@ -9,7 +9,7 @@ class Details extends Model
     protected $table	= 'bl_details';
 
     protected $fillable	= [
-        'name',
+        'post_id',
         'user_id',
         'category_id',
     	'sub_cat_id',

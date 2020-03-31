@@ -7,7 +7,7 @@
                 @foreach($chd->details as $hd)
                 <div class="col-md-4">
                     <div class="post post-sm">
-                        <a class="post-img" href="{{ route('blog.details', [clean($hd->name.'-'.$hd->category_id)]) }}">
+                        <a class="post-img" href="{{ route('blog.details', [clean($hd->heading.'-'.$hd->post_id)]) }}">
                             <img src="{{ asset('upload/details/'.$hd->image) }}" alt="">
                         </a>
                         <div class="post-body">
@@ -15,7 +15,7 @@
                                 <a href="javascript:;">{{$chd->name}}</a>
                             </div>
                             <h3 class="post-title title-sm">
-                                <a href="{{ route('blog.details', [clean($hd->name.'-'.$hd->category_id)]) }}">
+                                <a href="{{ route('blog.details', [clean($hd->heading.'-'.$hd->post_id)]) }}">
                                     {{ $hd->heading }}
                                 </a>
                             </h3>

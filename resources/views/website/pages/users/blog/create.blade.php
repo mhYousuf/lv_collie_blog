@@ -18,7 +18,7 @@
 				<div class="section-row">
             		@include('website.pages.users.deshboard.user_siderbar')
 				    <div class="col-md-8 box-form">
-					    <form class="" action="{{ route('users.store')}}" method="post" enctype="multipart/form-data">
+					    <form class="" action="{{ route('users.profile.store')}}" method="post" enctype="multipart/form-data">
 						  	@csrf
 						  	<div class="form-group">
 						  		<div class="row">
@@ -73,8 +73,13 @@
 								    	<div class="col-md-6">
 								    		<label class="form_heading">Status</label><i class="fill">*</i>
 			                                <select class="form-control prompt nice_select wide" name="status" id="status" required>
+			                                	@if($value)
+			                                    <option value="1" {{ ($value->status == '1') ? 'selected' : '' }}>Active</option>
+			                                    <option value="0" {{ ($value->status == '0') ? 'selected' : '' }}>Inactive</option>
+			                                    @else
 			                                    <option value="1" selected>Active</option>
 			                                    <option value="0">Inactive</option>
+			                                    @endif
 			                                </select>
 								    	</div>
 								    </div>
@@ -86,7 +91,7 @@
 							    	<div class="col-md-12">
 							    	<div class="col-md-12">
 							    		<label class="form_heading">Description</label><i class="fill">*</i>
-							      		<textarea type="text" class="form-control" id="description" name="description" rows="7" required value="{{ isset($value) ? $value->description : '' }}" placeholder="Type your description">{{ isset($value) ? $value->description : '' }}</textarea>
+							      		<textarea type="text" class="form-control ckeditor" id="description" name="description" rows="7" required value="{{ isset($value) ? $value->description : '' }}" placeholder="Type your description">{{ isset($value) ? $value->description : '' }}</textarea>
 							    	</div>
 							    	</div>
 							  	</div>
@@ -111,7 +116,8 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript">
-        $('#status').val({{ $value->status ?? 1 }});
-    </script>
-@endsection 
+<script type="text/javascript">
+   CKEDITOR.replace( 'description' );
+  </script>
+@endsection
+

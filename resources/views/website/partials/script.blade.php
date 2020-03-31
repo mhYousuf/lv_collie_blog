@@ -19,5 +19,11 @@
 <script src="{{asset('assets/superadmin/sweet/script/extensions/toast.js')}}"></script>
 <script src="{{asset('assets/superadmin/sweet/script/extensions/sweet-alerts.min.js')}}"></script>
 
+<script src="{{ asset('assets/superadmin/bower_components/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<!-- datepicker -->
+<script src="{{ asset('assets/superadmin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<!-- ckeditor -->
+<script src="{{asset('assets/superadmin/my_assets/ckeditor/ckeditor.js')}}"></script>
+
 <!-- my js -->
 <script src="{{asset('assets/website/my_assets/js/custom.js')}}"></script>

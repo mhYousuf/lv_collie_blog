@@ -46,20 +46,13 @@
             <ul class="treeview-menu">
                 <li class="active"><a href="{{ route('admin.category') }}"><i class="fa fa-circle-o"></i> Category Manage</a></li>
                 <li><a href="{{ route('admin.subcategory') }}"><i class="fa fa-circle-o"></i> Sub Category </a></li>
-
-                <li class="treeview">
-            <a href="#">
-                <i class="fa fa-edit"></i> <span>Blog Details</span>
-                <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-            </a>
-            <ul class="treeview-menu">
-                <li class="active"><a href="{{ route('admin.category.details') }}"><i class="fa fa-circle-o"></i> Blog Details</a></li>
             </ul>
-
         </li>
 
-            </ul>
-
+        <li class="treeview-menu">
+            <li class="">
+                <a href="{{ route('admin.category.details') }}"><i class="fa fa-edit"></i> Blog </a>
+            </li>
         </li>
 
         <!-- <li><a href=""><i class="fa fa-sliders"></i> <span>Category Manage</span></a></li> -->
@@ -77,6 +70,6 @@
     </ul>
 </section>
 
-<form id="logout-form" action="{{ route('auth.logout') }}" method="post" style="display: none;">
+<form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
     @csrf
 </form>

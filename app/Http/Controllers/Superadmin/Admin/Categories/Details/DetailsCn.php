@@ -17,7 +17,7 @@ class DetailsCn extends Controller
     {
         
     	$data['details']	= Details::with('cat', 'sub_category')->orderBy('id', 'desc')->get();
-    	return view('adminblog.pages.all_category.blog_details.index', $data);
+    	return view('adminblog.pages.all_category.blog.index', $data);
     }
 
     public function form(Request $request)
@@ -26,11 +26,12 @@ class DetailsCn extends Controller
         $data['users']           = Register::where(['status' => 1])->orderBy('id', 'desc')->get();
     	$data['category']	     = Category::where(['status'=> 1])->orderBy('id', 'desc')->get();
     	$data['sub_category']	 = SubCategory::where(['status' => 1])->orderBy('id', 'desc')->get();
-    	return view('adminblog.pages.all_category.blog_details.create', $data);
+    	return view('adminblog.pages.all_category.blog.create', $data);
     }
 
     public function store(Request $request)
     {
+        $data['post_id']        = uniqNum();
         $data['user_id']      = $request->user_id;
         $data['category_id']  = $request->category_id;
         $data['sub_cat_id']   = $request->sub_cat_id;

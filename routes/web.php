@@ -28,8 +28,9 @@ Route::get('/route:clear',function(){
    Artisan::call('route:clear');
    return 'route:clear';
 });
-
+/*==========================Web Home====================*/
 Route::get('/', 'Website\Web\HomeCn@index')->name('web.home');
+
 Route::group(['prefix' => 'user', 'namespace' => 'Website\Web\Users', 'as' => 'users.', 'middleware' => 'webauth'], function()
 {
 Route::get('index', 'Post\PostCn@index')->name('index');
@@ -43,7 +44,12 @@ Route::get('blog/categories/{cat_slug}/{sub_cat_slug?}', 'Website\Web\HomeCn@blo
 Route::get('blog/details/{dl_slug}', 'Website\Web\HomeCn@details')->name('details');
 });
 
-Route::get('user/deshboard', 'Website\Web\Users\DeshboardCn@index')->name('users.deshboard');
+Route::group(['as' => 'users.'], function(){
+Route::get('user/deshboard', 'Website\Web\Users\DeshboardCn@index')->name('deshboard');
+Route::get('user/profile', 'Website\Web\Users\ProfileCn@index')->name('profile');
+Route::get('user/profile/create/{id?}', 'Website\Web\Users\ProfileCn@create')->name('profile.create');
+Route::post('user/store', 'Website\Web\Users\ProfileCn@store')->name('profile.store');
+});
 
 
 // Route::get('blog/comment', 'Website\Web\Comment\CommentCn@index')->name('blog.comment');

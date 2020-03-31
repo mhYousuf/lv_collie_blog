@@ -17,12 +17,18 @@ class RegisterCn extends Controller
     public function store(Request $request)
     {
     	// dd($request->all());
+        $data['access_code']            = uniqNum();
+        $data['role']                   = 'Webusers';
     	$id 				= $request->id;
-    	$data['name']	    = $request->name;
+        $data['name']       = $request->name;
+    	$data['username']	= $request->username;
     	$data['email']		= $request->email;
     	$data['phone']		= $request->phone;
     	$data['password']	= Hash::make($request->password);
     	$data['address']	= $request->address;
+        $data['image']      = '';
+        $data['birth_date']      = '';
+        $data['gender']      = '';
     	$data['status']	    = 1;
     	$data['online']	    = 0;
 

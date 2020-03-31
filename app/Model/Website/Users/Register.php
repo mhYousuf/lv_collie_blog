@@ -6,23 +6,28 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Register extends Authenticatable
 {
-    protected $table = 'users';
+    protected $table = 'web_users';
 
     protected $fillable = [
+        'access_code',
         'role',
-    	'name',
-    	'email',
-    	'phone',
-    	'password',
-    	'address',
-    	'status',
-    	'online'
+        'facebook_id',
+        'google_id',
+        'name',
+        'email',
+        'phone',
+        'username',
+        'image',
+        'birth_date',
+        'gender',
+        'verify_token',
+        'password',
+        'address',
+        'verify_token',
+        'status',
+        'online',
+        'created_by'
     ];
-
-    public function auser()
-    {
-        return $this->hasMany('App\Model\Auth\AuthLogin', 'id');
-    }
 
 
     protected $hidden = [

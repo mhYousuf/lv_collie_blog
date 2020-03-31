@@ -12,8 +12,8 @@
 							@csrf
 							<div class="form-group row">
 						    	<div class="col-md-6">
-						    		<label>Email</label>
-						      		<input type="email" class="form-control" id="email" name="email" placeholder="Type your Email">
+						    		<label>User name</label>
+						      		<input type="username" class="form-control" id="username" name="username" placeholder="Type your Username">
 						    	</div>
 						  	</div>
 							  <div class="form-group row">

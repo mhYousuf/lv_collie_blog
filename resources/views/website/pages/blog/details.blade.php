@@ -1,24 +1,29 @@
 @extends('website.layout')
 @section('content')
-    <div id="post-header" class="page-header">
-        <div class="page-header-bg" style="background-image: url('{{ asset('assets/website/img/header-1.jpg') }}');" data-stellar-background-ratio="0.5"></div>
+    <!-- <div id=""> -->
+        <div class="container-fliud slider_wrap" style="background-image: url('{{ asset('upload/details/'.$post->image) }}');" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-10 headr_wrap">
                     <div class="post-category">
-                        <a href="category.html">Lifestyle</a>
+                        <a href="javasrcipt:;">{{$post->cat->name}}, {{ $post->sub_category->subcategory_name }}</a>
                     </div>
-                    <h1>Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</h1>
-                    <ul class="post-meta">
-                        <li><a href="author.html">John Doe</a></li>
-                        <li>20 April 2018</li>
+                    <h1>
+                        <a href="{{ route('blog.details', [clean($post->heading.'-'.$post->post_id)]) }}">
+                            {!! substr(strip_tags($post->heading), 0, 250) !!} ...
+                        </a>
+                    </h1>
+                    <ul class="post-meta post-name">
+                        <li><a href="javasrcipt:;">John Doe</a></li>
+                        <li>{{ date('d-M-Y', strtotime($post->date)) }}</li>
                         <li><i class="fa fa-comments"></i> 3</li>
                         <li><i class="fa fa-eye"></i> 807</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+    <!-- </div> -->
 
     <div class="section">
         <div class="container">
@@ -34,25 +39,12 @@
                     </div>
 
                     <div class="section-row">
-                        <h3>{{$detail->heading}}</h3>
-                        <figure class="pull-right">
+                        <h3>{!! substr(strip_tags($detail->heading), 0, 250) !!}</h3>
+                        <figure class="pull-center">
                             <img src="{{ asset('upload/details/'.$detail->image) }}" alt="image">
                             <!-- <figcaption>Lorem ipsum dolor sit amet, mea ad idque detraxit,</figcaption> -->
-                        </figure>
-                        <p>{{$detail->description}}</p>
-                        <!-- <p>Nihil persius id est, iisque tincidunt abhorreant no duo. Eripuit placerat mnesarchum ius at, ei pro laoreet invenire persecuti, per magna tibique scriptorem an. Aeque oportere incorrupte ius ea, utroque erroribus mel in, posse dolore nam in. Per veniam vulputate intellegam et, id usu case reprimique, ne aperiam scaevola sed. Veritus omnesque qui ad. In mei admodum maiorum iracundia, no omnis melius eum, ei erat vivendo his. In pri nonumes suscipit.</p>
-                        <p>Sit nulla quidam et, eam ea legimus deserunt neglegentur. Et veri nostrud vix, meis minimum atomorum ex sea, stet case habemus mea no. Ut dignissim dissentiet his, mei ea delectus delicatissimi, debet dissentiunt te duo. Sonet partiendo et qui, pro et veri solet singulis. Vidit viderer eleifend ad nam. Minimum eligendi suscipit ius et, vis ex laoreet detracto scripserit, at sumo sale solum pro.</p>
-                        <blockquote class="blockquote">
-                            <p>Ei prima graecis consulatu vix, per cu corpora qualisque voluptaria. Bonorum moderatius in per, ius cu albucius voluptatum. Ne ius torquatos dissentiunt. Brute illum utroque eu quo. Cu tota mediocritatem vis, aliquip cotidieque eu ius, cu lorem suscipit eleifend sit.</p>
-                            <footer class="blockquote-footer">John Doe</footer>
-                        </blockquote>
-                        <p>Mei cu diam sonet audiam, his ad impetus fuisset indoctum. Te sit altera qualisque, stet suavitate ne vel. Euismod suavitate duo eu, habemus rationibus neglegentur ei qui. Debet omittam ad usu, ex vero feugait oporteat eos, id usu sint numquam sententiae.</p>
-                        <figure>
-                            <img src="{{ asset('assets/website/img/media-2.jpg') }}" alt="">
-                        </figure>
-                        <h3>Sit nulla quidam et, eam ea legimus deserunt neglegentur.</h3>
-                        <p>No possim singulis sea, dolores salutatus interpretaris eam ad. An singulis postulant his, an inermis urbanitas mel. Wisi veri noster eu est, diam ridens eum in. Omnium imperdiet patrioque quo in, est sumo persecuti abhorreant ei. Sed feugiat iracundia id, inermis percipit eu has.</p>
-                        <p>In vidit homero ullamcorper his, ea mea senserit constituto, et alia idque congue sit. Postea percipit his ne. Probo movet noluisse in nam, sed ex utroque inermis corrumpit, oratio tation vix at. Usu aperiri assentior at, eam et melius iudicabit pertinacia.</p> -->
+                        </figure><br>
+                        <p>{!! $detail->description !!}</p>
                     </div>
 
                     <div class="section-row">
@@ -84,11 +76,11 @@
 
                     <div class="section-row">
                         <div class="section-title">
-                            <h3 class="title">About <a href="author.html">John Doe</a></h3>
+                            <h3 class="title">About <a href="javasrcipt:;">John Doe</a></h3>
                         </div>
                         <div class="author media">
                             <div class="media-left">
-                                <a href="author.html">
+                                <a href="javasrcipt:;">
                                     <img class="author-img media-object" src="{{ asset('assets/website/img/avatar-1.jpg') }}" alt="">
                                 </a>
                             </div>
@@ -118,7 +110,7 @@
                                         </div>
                                         <h3 class="post-title title-sm"><a href="blog-post.html">Postea senserit id eos, vivendo periculis ei qui</a></h3>
                                         <ul class="post-meta">
-                                            <li><a href="author.html">John Doe</a></li>
+                                            <li><a href="javasrcipt:;">John Doe</a></li>
                                             <li>20 April 2018</li>
                                         </ul>
                                     </div>
@@ -135,7 +127,7 @@
                                         </div>
                                         <h3 class="post-title title-sm"><a href="blog-post.html">Mel ut impetus suscipit tincidunt. Cum id ullum laboramus persequeris.</a></h3>
                                         <ul class="post-meta">
-                                            <li><a href="author.html">John Doe</a></li>
+                                            <li><a href="javasrcipt:;">John Doe</a></li>
                                             <li>20 April 2018</li>
                                         </ul>
                                     </div>
@@ -152,7 +144,7 @@
                                         </div>
                                         <h3 class="post-title title-sm"><a href="blog-post.html">Ne bonorum praesent cum, labitur persequeris definitionem quo cu?</a></h3>
                                         <ul class="post-meta">
-                                            <li><a href="author.html">John Doe</a></li>
+                                            <li><a href="javasrcipt:;">John Doe</a></li>
                                             <li>20 April 2018</li>
                                         </ul>
                                     </div>

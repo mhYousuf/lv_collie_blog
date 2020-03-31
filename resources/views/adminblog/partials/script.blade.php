@@ -59,3 +59,6 @@
 
 <!-- my js -->
 <script src="{{asset('assets/superadmin/my_assets/js/custom.js')}}"></script>
+<!-- ckeditor -->
+<script src="{{asset('assets/superadmin/my_assets/ckeditor/ckeditor.js')}}"></script>
+

@@ -15,6 +15,7 @@ class CreateBlDetailsTable extends Migration
     {
         Schema::create('bl_details', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('post_id')->unique();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('sub_cat_id');
