@@ -17,13 +17,13 @@
                     <div class="col-md-6">
                         <div class="post">
                             <a class="post-img" href="{{ route('blog.details', [clean($v->heading.'-'.$v->post_id)]) }}">
-                                <img src="{{ asset('upload/details/'.$v->image) }}" height="200" alt="">
+                                <img src="{{ asset('upload/details/'.$v->image) }}" width="100%" height="200" alt="">
                             </a>
                             <div class="post-body">
                                 <div class="post-category">
                                     <a href="javascript:;" id="">{{$v->sub_category->subcategory_name}}</a>
                                 </div>
-                                <h3 class="post-title"><a href="{{ route('blog.details', [clean($v->heading.'-'.$v->post_id)]) }}" id="" class="blog">{{ $v->heading}}</a></h3>
+                                <h3 class="post-title"><a href="{{ route('blog.details', [clean($v->heading.'-'.$v->post_id)]) }}" id="" class="blog">{!! substr(strip_tags($v->heading), 0, 100) !!} ...</a></h3>
                                 <ul class="post-meta">
                                     <li><a href="javascript:;">{{ $v->user->username }}</a></li>
                                     <li>{{ date('d-M-Y', strtotime($v->date)) }}</li>

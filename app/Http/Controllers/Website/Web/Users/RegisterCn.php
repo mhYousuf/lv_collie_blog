@@ -5,18 +5,35 @@ namespace App\Http\Controllers\Website\Web\Users;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use App\Model\Website\Users\Register;
 
 class RegisterCn extends Controller
 {
     public function index()
     {
-    	return view('website.pages.users.auth.register.index');
+    	return view('website.pages.users.auth.register.register');
     }
 
     public function store(Request $request)
     {
     	// dd($request->all());
+        $validator = Validator::make($request->all(), [
+        'name' => 'required|unique:web_users',
+        'username' => 'required|unique:web_users,username',
+        'email' => 'required|email|unique:web_users,email',
+        'phone' => 'required|min:6|unique:web_users',
+        'password' => 'required|min:6|unique:web_users',
+        // 'email' => 'required|unique:web_users|',
+        // 'body' => 'required',
+            ]);
+
+        // if ($validator->fails()) {
+        //     return redirect()->back()
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
+
         $data['access_code']     = uniqNum();
         $data['role']            = 'Webusers';
         $data['name']            = $request->name;
@@ -36,15 +53,15 @@ class RegisterCn extends Controller
         if($check)
         {
             // return response()->json(['data' => $check, 'type'=>'error']);
-            session()->flash('msg', 'Register Faild..');
-            session()->flash('type', 'Error');
-            return redirect()->back();
+            // session()->flash('msg', 'Register Faild..');
+            // session()->flash('type', 'Error');
+            return redirect()->back()->withInput()->withErrors($validator);
         }
 
         
         Register::create($data);
 
-        session()->flash('succes', 'Register success..');
+        // session()->flash('succes', 'Register success..');
     	return redirect()->route('users.login');
     }
 }

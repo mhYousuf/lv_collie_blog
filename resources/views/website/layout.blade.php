@@ -21,7 +21,7 @@
                 if($type == 'info') { $icon = 'fa fa-info-circle'; $color = '#f96197'; }
             @endphp
             <script type="text/javascript">
-                swal({title:'{{$text}}', icon:'{{$type}}', button:true});
+                swal.fire({title:'{{$text}}', icon:'{{$type}}', button:true});
                 {{-- $.notify('{{$text}}','{{$type}}'); --}}
                 // iziToast.{{$type}}( {title: '{{ ucfirst($type) }}', message: '{{$text}}'} );
 

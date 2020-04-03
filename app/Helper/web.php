@@ -55,5 +55,10 @@
         return public_path($path);
     }
 
+    function msgFlash($text = 'Session Flash Text', $type = 'success', $key = 'msg')
+    {
+        session()->flash($key, ['text' => $text, 'type' => $type]);
+    }
+
 
 ?>

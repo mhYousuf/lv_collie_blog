@@ -16,7 +16,7 @@
                     <div class="col-md-6">
                         <div class="post">
                             <a class="post-img" href="{{ route('blog.details', [clean($v->heading.'-'.$v->post_id)]) }}">
-                                <img src="{{ asset('upload/details/'.$v->image) }}" height="200" alt="">
+                                <img src="{{ asset('upload/details/'.$v->image) }}" height="200" width="100%" alt="">
                             </a>
                             <div class="post-body">
                                 <div class="post-category">

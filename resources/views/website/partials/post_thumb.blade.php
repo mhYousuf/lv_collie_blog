@@ -6,7 +6,7 @@
             <div class="col-md-8 hot-post-left">
                 <div class="post post-thumb">
                     <a class="post-img" href="{{ route('blog.details', [clean($v->heading.'-'.$v->post_id)]) }}">
-                        <img src="{{ asset('upload/details/'.$v->image) }}" alt="">
+                        <img src="{{ asset('upload/details/'.$v->image) }}" width="100%" height="508" alt="">
                     </a>
                     <div class="post-body">
                         <div class="post-category">

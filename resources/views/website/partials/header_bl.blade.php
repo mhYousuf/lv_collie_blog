@@ -20,7 +20,7 @@
                                 </a>
                             </h3>
                             <ul class="post-meta">
-                                <li><a href="javascript:;">{{ $hd->name }}</a></li>
+                                <li><a href="javascript:;">{{ $hd->user->username }}</a></li>
                                 <li>{{ date('d-M-Y', strtotime($hd->date)) }}</li>
                             </ul>
                         </div>

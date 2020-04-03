@@ -51,7 +51,7 @@
                     <div class="col-md-4">
                         <div class="post post-sm">
                             <a class="post-img" href="{{ route('blog.details', [clean($dt->heading.'-'.$dt->post_id)]) }}">
-                                <img src="{{ asset('upload/details/'.$dt->image) }}" alt="">
+                                <img src="{{ asset('upload/details/'.$dt->image) }}" alt="" height="200" width="100%">
                             </a>
                             <div class="post-body">
                                 <div class="post-category">

@@ -34,4 +34,9 @@ class Category extends Model
     {
         return $this->belongsto(SubCategory::class, 'category_id');
     }
+
+    public function user()
+    {
+        return $this->belongsto('App\Model\Website\Users\Register', 'user_id');
+    }
 }
