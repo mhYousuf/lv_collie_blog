@@ -36,7 +36,7 @@ class ProfileCn extends Controller
     	$id = auth()->guard('webusers')->id();
 
         $validator = Validator::make($request->all(), [
-            'phone' => ['required', 'unique:web_users,phone,'.$id],
+            'phone' => ['required', 'min:6', 'unique:web_users,phone,'.$id],
             'email' => ['required', 'string', 'email', 'unique:web_users,email,'.$id],
             // 'username' => ['required', 'unique:web_users'],
             // 'date_of_birth' =>'required|date|before:17 years ago',

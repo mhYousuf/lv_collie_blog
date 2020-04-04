@@ -7,14 +7,14 @@
 <link rel="stylesheet" href="{{ asset('assets/website/css/font-awesome.min.css')}}">
 <link type="text/css" rel="stylesheet" href="{{ asset('assets/website/css/style.css')}}" />
 
-<link rel="stylesheet" href="{{asset('assets/superadmin/vendor/datatables/dataTables.bootstrap4.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/superadmin/vendor/datatables/dataTables.bootstrap4.css') }}">
 
 <!-- sweet alart -->
-<link rel="shortcut icon" href="{{asset('assets/superadmin/sweet/css/extensions/sweetalert2.min.css')}}">
+<link rel="shortcut icon" href="{{ asset('assets/superadmin/sweet/css/extensions/sweetalert2.min.css')}}">
 
 <!-- <link rel="shortcut icon" href="{{asset('assets/superadmin/sweet/css/extensions/toastr.css')}}"> -->
-<link rel="shortcut icon" href="{{asset('assets/superadmin/sweet/css/toastr/extensions/toastr.min.css')}}">
-<link rel="shortcut icon" href="{{asset('assets/superadmin/sweet/css/toastr/extensions/toast.css')}}">
+<link rel="shortcut icon" href="{{ asset('assets/superadmin/sweet/css/toastr/extensions/toastr.min.css')}}">
+<link rel="shortcut icon" href="{{ asset('assets/superadmin/sweet/css/toastr/extensions/toast.css')}}">
 
 <link type="text/css" rel="stylesheet" href="{{ asset('assets/website/my_assets/css/custom.css') }}" />
 

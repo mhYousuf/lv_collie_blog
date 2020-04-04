@@ -19,7 +19,7 @@ class RegisterCn extends Controller
     {
     	// dd($request->all());
         $validator = Validator::make($request->all(), [
-        'name' => 'required|unique:web_users',
+        // 'name' => 'required|unique:web_users',
         'username' => 'required|unique:web_users,username',
         'email' => 'required|email|unique:web_users,email',
         'phone' => 'required|min:6|unique:web_users',

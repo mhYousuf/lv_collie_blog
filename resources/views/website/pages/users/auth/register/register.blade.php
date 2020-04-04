@@ -27,10 +27,7 @@
 					  	<div class="form-group row">
 					    	<div class="col-md-6 required-field">
 					    		<label for="name">Full Name</label>
-					      		<input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" placeholder="Type your Full name" required>
-					    		@error('name')
-                                <span class="invalid-feedback" role="alert" style="color: red;"><strong>{{ $message }}</strong></span>
-                            	@enderror
+					      		<input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" placeholder="Type your Full name" required>
 					    	</div>
 					  	</div>
 					  	<div class="form-group row">

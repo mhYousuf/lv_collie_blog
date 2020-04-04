@@ -7,7 +7,7 @@
 
 <body>
     @include('website.partials.header')
-    @php
+        @php
             $msg  = session()->get('msg');
             $text = $msg['text'] ?? '';
             $type = $msg['type'] ?? '';
@@ -40,7 +40,7 @@
     @include('website.partials.footer')
     @include('website.partials.script')
 
-    @if(session('msg'))
+    @if(session('faild'))
         <script type="text/javascript">
             $.toast({
           heading: 'Success',

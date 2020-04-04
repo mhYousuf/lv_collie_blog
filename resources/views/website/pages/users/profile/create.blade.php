@@ -34,9 +34,9 @@
 	                            				</div>
 	                            				<div class="col-md-6">
 	                            					<label>Email</label>
-	                            					<input class="form-control @error('email') is-invalid @enderror" type="text" name="email" id="email" value="{{ old('email') ?? $user->email }}" placeholder="">
-	                            					 @error('phone')
-                                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+	                            					<input class="form-control @error('email') is-invalid @enderror" type="text" name="email" id="email" value="{{ old('email') ?? $user->email }}" required placeholder="">
+	                            					 @error('email')
+                                                    <span class="invalid-feedback" role="alert" style="color: red;"><strong>{{ $message }}</strong></span>
                                                 	@enderror
 	                            				</div>
 	                            			</div>
@@ -44,9 +44,9 @@
 	                            			<div class="form-group col-md-12">
 	                            				<div class="col-md-6">
 	                            					<label>Phone</label>
-	                            					<input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone') ?? $user->phone }}" placeholder="">
+	                            					<input class="form-control @error('phone') is-invalid @enderror" type="text" name="phone" id="phone" value="{{ old('phone') ?? $user->phone }}" required placeholder="">
 	                            					 @error('phone')
-                                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                                    <span class="invalid-feedback" role="alert" style="color: red;"><strong>{{ $message }}</strong></span>
                                                 	@enderror
 	                            				</div>
 	                            				<div class="col-md-6">
