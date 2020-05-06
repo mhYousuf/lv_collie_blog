@@ -15,7 +15,7 @@
                 </ul>
 
                 <div class="nav-logo">
-                    <a href="{{ route('web.home')}}" class="logo"><img src="{{ asset('assets/website/img/logo.png')}}" alt=""></a>
+                    <a href="{{ route('web.home')}}" class="logo"><img src="{{ asset('assets/website/img/bl.png')}}" alt=""></a>
                 </div>
 
                 <div class="nav-btns dropdown">
@@ -37,8 +37,20 @@
                     <button class="aside-btn"><i class="fa fa-bars"></i></button>
                     <button class="search-btn"><i class="fa fa-search"></i></button>
                     <div id="nav-search">
-                        <form>
-                            <input class="input" name="search" placeholder="Enter your search...">
+                        <form action="javascript:;" method="get" style="margin: 0px;">
+                            @csrf
+                            <div class="w_search_wrapper">
+                                <div class="w_search" style="margin-top: 7px;">
+                                    <input type="search" class="search_input" name="q" id="q" placeholder="Search..." required="" autocomplete="off">
+                                    <select class="w_select_item" id="cat" name="cat">
+                                        <option value="">All Categories</option>
+                                        @foreach ($categories as $cat)
+                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <button class="search_btn" type="submit"><i class="fa fa-search"></i></button>
+                                </div><!-- End .header-search-wrapper -->
+                            </div>
                         </form>
                         <button class="nav-close search-close">
                             <span></span>
@@ -159,3 +171,22 @@
         </div>
     </div>
 </header>
+
+<script type="text/javascript">
+    var url = "{{ route('search.action') }}";
+    $('.search_input').typeahead({
+        asset: function(query, process) {
+            return $.get(url, {
+              query: query
+            }, function(data) {
+              return process(data)
+            });
+        },
+        updater: function(item) {
+            console.log(item);
+            // window.location.href = 'product/'+item.name.replace(/\s/g , "-")+'-'+item.post_id;
+            window.location.href = item.prod_url;
+        },
+    });
+</script>
+

@@ -20,4 +20,9 @@ class CommentCn extends Controller
 
     	return redirect()->route('blog.details');
     }
+
+    public function reply()
+    {
+        return view('website.pages.comment.reply');
+    }
 }

@@ -200,7 +200,7 @@
                                         <span class="time">5 min ago</span>
                                     </div>
                                     <p>{{ $c->message }}</p>
-                                    <a href="#" class="reply">Reply</a>
+                                    <a href="{{ route('user.reply')}}" class="reply">Reply</a>
                                     @endforeach
                                 </div>
                             </div>

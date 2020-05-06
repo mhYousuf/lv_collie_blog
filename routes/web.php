@@ -30,6 +30,7 @@ Route::get('/route:clear',function(){
 });
 /*==========================Web Home====================*/
 Route::get('/', 'Website\Web\HomeCn@index')->name('web.home');
+Route::get('/search', 'Website\Web\SearchCn@search')->name('search.action');
 
 Route::group(['prefix' => 'user', 'namespace' => 'Website\Web\Users', 'as' => 'users.', 'middleware' => 'webauth'], function()
 {
@@ -55,6 +56,7 @@ Route::post('user/store', 'Website\Web\Users\ProfileCn@store')->name('profile.st
 
 // Route::get('blog/comment', 'Website\Web\Comment\CommentCn@index')->name('blog.comment');
 Route::post('comment', 'Website\Web\Comment\CommentCn@store')->name('comment.reply');
+Route::post('comment/reply', 'Website\Web\Comment\CommentCn@reply')->name('user.reply');
 
 // Route::group(['as' => 'user.'], function(){
 // Route::get('register', 'Website\Web\Users\RegisterCn@index')->name('register.index');

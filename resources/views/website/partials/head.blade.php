@@ -18,3 +18,41 @@
 
 <link type="text/css" rel="stylesheet" href="{{ asset('assets/website/my_assets/css/custom.css') }}" />
 
+<style type="text/css">
+    .w_search {
+        display: flex;
+        justify-content: center;
+    }
+
+    .w_search .search_input {
+        width: 70%;
+        outline: none;
+        border: none; 
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        padding: 7px 10px 7px 10px;
+        background: #f4f4f4;
+    }
+
+    .w_search .w_select_item {
+        width: 20%;
+        outline: none;
+        background: #f4f4f4;
+        border: none;
+        cursor: pointer;
+        padding: 7px 10px 7px 10px;
+    }
+
+    .w_search .search_btn {
+        width: 50px;
+        outline: none;
+        background: #f4f4f4;
+        border: none;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        cursor: pointer;
+        padding: 7px 10px 7px 10px;
+    }
+
+</style>
+
