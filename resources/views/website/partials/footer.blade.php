@@ -4,7 +4,7 @@
             <div class="col-md-3">
                 <div class="footer-widget">
                     <div class="footer-logo">
-                        <a href="javascript:;" class="logo"><img src="{{ asset('assets/website/img/logo-alt.png')}}" alt=""></a>
+                        <a href="javascript:;" class="logo"><img src="{{ asset('assets/website/img/bl.png')}}" alt=""></a>
                     </div>
                     <p>Nec feugiat nisl pretium fusce id velit ut tortor pretium. Nisl purus in mollis nunc sed. Nunc non blandit massa enim nec.</p>
                     <ul class="contact-social">
